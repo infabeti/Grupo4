@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -16,6 +17,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VLogin extends JFrame {
 
@@ -76,22 +79,36 @@ public class VLogin extends JFrame {
 		passwordField.setBounds(200, 106, 86, 20);
 		contentPane.add(passwordField);
 		
-//		Boton login cuando se pulse va a la pantalla de Generos
-		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setForeground(Color.BLACK);
-		btnLogin.setBackground(Color.WHITE);
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		btnLogin.setBounds(200, 155, 89, 23);
-		contentPane.add(btnLogin);
-		
 		lblLogo = new JLabel((String) null);
 		lblLogo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		lblLogo.setBounds(344, 0, 90, 91);
 		contentPane.add(lblLogo);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String Usuario="aitor";
+				String Contrasena="123";
+				
+				String Pass=new String(passwordField.getPassword());
+				
+				if (textFieldUsuario.getText().equals(Usuario) && passwordField.equals(Contrasena)) {
+//					Si El field de usuario es igual al String Usuario y la contraseña al String Contrasena
+					
+					//la vetana de generos
+//					VGeneros Generos= new VGeneros();
+//					Generos.setVisible(true);
+//					dispose();
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+					
+				}
+			}
+		});
+		btnLogin.setBounds(197, 160, 89, 23);
+		contentPane.add(btnLogin);
 	}
 }
