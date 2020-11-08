@@ -21,7 +21,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class VLogin extends JFrame {
-
+//Ventana Iñaki
+	//	static Login tempologin;
+	
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
 	private JLabel lblPassword;
