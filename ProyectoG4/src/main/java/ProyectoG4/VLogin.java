@@ -29,6 +29,7 @@ public class VLogin extends JFrame {
 	private JLabel lblPassword;
 	private JPasswordField passwordField;
 	private JLabel lblLogo;
+	private final JButton btnCancelar = new JButton("Cancelar");
 
 	/**
 	 * Launch the application.
@@ -50,6 +51,9 @@ public class VLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VLogin() {
+		initGUI();
+	}
+	private void initGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,5 +116,22 @@ public class VLogin extends JFrame {
 		});
 		btnLogin.setBounds(197, 160, 89, 23);
 		contentPane.add(btnLogin);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCancelar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//la vetana de Bienvenida
+//				VBienvenida Bienvenida= new VBienvenida();
+//				Bienvenida.setVisible(true);
+//				dispose();
+				
+			}
+		});
+		btnCancelar.setBounds(335, 227, 89, 23);
+		
+		contentPane.add(btnCancelar);
 	}
 }
