@@ -81,7 +81,7 @@ import java.awt.Toolkit;
 	    public static void main(String[] ar){
 	       
 	    	VBienvenida inicio=new VBienvenida();
-	    	inicio.setBounds(0,0,900,600);
+	    	
 	    	inicio.setVisible(true);
 	    	inicio.setTitle("Bienvenido");
 	         
