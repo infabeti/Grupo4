@@ -22,7 +22,7 @@ import java.awt.Color;
 	        logo.setBounds(250, 250, 500, 500);
 	        add(logo);*/
 
-<<<<<<< HEAD
+
 	        
 	       Timer cronom=new Timer();
 	        cronom.schedule(new TimerTask(){
@@ -34,7 +34,7 @@ import java.awt.Color;
 	            dispose();
 	        }},3000);
 
-=======
+
 	    	initGUI();
 	    }
 	    private void initGUI() {
@@ -72,7 +72,6 @@ import java.awt.Color;
 	    		VLogin.tempologin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    	    dispose();
 	    	}},3000);
->>>>>>> eb6b47ec1d24514476f6458a04f795a766ea5f01
 	    }
 
 	   
