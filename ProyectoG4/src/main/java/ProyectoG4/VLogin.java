@@ -22,7 +22,7 @@ import java.awt.event.MouseEvent;
 
 public class VLogin extends JFrame {
 //Ventana Iñaki
-	//	static Login tempologin;
+	static VLogin tempologin;
 	
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
