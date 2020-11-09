@@ -58,7 +58,7 @@ public class VGeneros extends JFrame {
 	 * Create the frame.
 	 */
 	public VGeneros() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("F:\\EWorkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
 		setFocusTraversalPolicyProvider(true);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();

@@ -22,7 +22,7 @@ import java.awt.event.MouseEvent;
 
 public class VLogin extends JFrame {
 //Ventana Iñaki
-	//	static Login tempologin;
+	static VLogin tempologin;
 	
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
@@ -30,6 +30,8 @@ public class VLogin extends JFrame {
 	private JPasswordField passwordField;
 	private JLabel lblLogo;
 	private final JButton btnCancelar = new JButton("Cancelar");
+	private String Contrasena = "123";
+	private String usuario = "aitor";
 
 	/**
 	 * Launch the application.
@@ -92,20 +94,18 @@ public class VLogin extends JFrame {
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addMouseListener(new MouseAdapter() {
-			@Override
+	
 			public void mouseClicked(MouseEvent e) {
-				String Usuario="aitor";
-				String Contrasena="123";
+				char clave[]=passwordField.getPassword();
+				String clavedef=new String(clave);
 				
-				String Pass=new String(passwordField.getPassword());
-				
-				if (textFieldUsuario.getText().equals(Usuario) && passwordField.equals(Contrasena)) {
+				if (textFieldUsuario.equals("aitor") && clavedef.equals("123")) {
 //					Si El field de usuario es igual al String Usuario y la contraseña al String Contrasena
 					
 					//la vetana de generos
-//					VGeneros Generos= new VGeneros();
-//					Generos.setVisible(true);
-//					dispose();
+					VGeneros Generos= new VGeneros();
+					Generos.setVisible(true);
+					dispose();
 					
 				}
 				else {
