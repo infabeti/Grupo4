@@ -30,8 +30,6 @@ public class VLogin extends JFrame {
 	private JPasswordField passwordField;
 	private JLabel lblLogo;
 	private final JButton btnCancelar = new JButton("Cancelar");
-	private String Contrasena = "123";
-	private String usuario = "aitor";
 
 	/**
 	 * Launch the application.
@@ -97,9 +95,10 @@ public class VLogin extends JFrame {
 	
 			public void mouseClicked(MouseEvent e) {
 				char clave[]=passwordField.getPassword();
+				
 				String clavedef=new String(clave);
 				
-				if (textFieldUsuario.equals("aitor") && clavedef.equals("123")) {
+				if (textFieldUsuario.getText().equals("aitor") && clavedef.equals("123")) {
 //					Si El field de usuario es igual al String Usuario y la contraseña al String Contrasena
 					
 					//la vetana de generos

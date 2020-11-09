@@ -49,7 +49,6 @@ package ProyectoG4;
 	            
 	        public void run(){    
 	        	VLogin.tempologin=new VLogin();
-	        	VLogin.tempologin.setBounds(0,0,900,600);
 	        	VLogin.tempologin.setVisible(true);
 	        	VLogin.tempologin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	            dispose();
