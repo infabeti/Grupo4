@@ -4,6 +4,7 @@ package ProyectoG4;
 	import java.util.TimerTask;
 	import javax.swing.*;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 	public class VBienvenida extends JFrame {
 	    /**
@@ -15,12 +16,9 @@ import java.awt.Color;
 	private JLabel bienvenido,bienvenido2,cinecss,text/*,logo*/;
 	   
 	    public VBienvenida(){
-	       
-	        /*logo = new JLabel();
-	        ImageIcon Inter = new ImageIcon("../img/logo.png");
-	        logo.setIcon(Inter);
-	        logo.setBounds(250, 250, 500, 500);
-	        add(logo);*/
+	    	setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
+	    	setTitle("Bienvenida");
+
 
 
 	        
@@ -43,24 +41,29 @@ import java.awt.Color;
 	    	getContentPane().setLayout(null);
 	    	
 	    	 bienvenido=new JLabel("¡Bienvenido/a!");
-	    	bienvenido.setBounds(52,67,345,60);
+	    	bienvenido.setBounds(258,171,345,60);
 	    	bienvenido.setFont(bienvenido.getFont().deriveFont(50f));
 	    	getContentPane().add(bienvenido);
 	    	
 	        bienvenido2=new JLabel("app diseñada para");
-	    	bienvenido2.setBounds(305,300,900,60);
+	    	bienvenido2.setBounds(267,259,254,60);
 	    	bienvenido2.setFont(bienvenido2.getFont().deriveFont(30f));
 	    	getContentPane().add(bienvenido2);
 	    	
 	        cinecss=new JLabel("CINES CSS");
-	    	cinecss.setBounds(350,350,900,60);
+	    	cinecss.setBounds(323,319,157,60);
 	    	cinecss.setFont(cinecss.getFont().deriveFont(30f));
 	    	getContentPane().add(cinecss);
 	    	
 	    	text=new JLabel("A continuación podrás elegir la cartelera del próximo fin de semana");
-	    	text.setBounds(390,500,900,60);
+	    	text.setBounds(340,492,445,60);
 	    	text.setFont(text.getFont().deriveFont(15f));
 	    	getContentPane().add(text);
+	    	
+	    	JLabel lblNewLabel = new JLabel("");
+	    	lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
+	    	lblNewLabel.setBounds(32, 27, 94, 143);
+	    	getContentPane().add(lblNewLabel);
 	    	
 	    		        
 	    		       Timer cronom=new Timer();
@@ -84,6 +87,4 @@ import java.awt.Color;
 	         
 	         
 	    }
-	   
-	   
 	}
