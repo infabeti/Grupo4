@@ -19,6 +19,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class VLogin extends JFrame {
 //Ventana Iñaki
@@ -65,6 +66,7 @@ public class VLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblUsuario.setBackground(Color.BLACK);
 		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUsuario.setBounds(110, 78, 90, 14);
@@ -76,6 +78,7 @@ public class VLogin extends JFrame {
 		textFieldUsuario.setColumns(10);
 		
 		lblPassword = new JLabel("Contrase\u00F1a:");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPassword.setBackground(Color.BLACK);
 		lblPassword.setBounds(100, 109, 90, 14);

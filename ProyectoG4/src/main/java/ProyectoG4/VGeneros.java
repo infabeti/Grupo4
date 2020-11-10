@@ -29,6 +29,8 @@ import java.awt.Insets;
 import java.awt.Cursor;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VGeneros extends JFrame {
 
@@ -36,7 +38,7 @@ public class VGeneros extends JFrame {
 	private JTextField textField_codigo;
 	private JTable table_sabado;
 	private JTable table_domingo;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup groupDias = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -81,27 +83,27 @@ public class VGeneros extends JFrame {
 		JLabel lbl_logo = new JLabel("");
 		lbl_logo.setName("");
 		lbl_logo.setSize(90, 92);
-		lbl_logo.setLocation(5,5);
+		lbl_logo.setLocation(10,5);
 		lbl_logo.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));  
 		
 		JLabel lbl_codigos = new JLabel("C\u00D3DIGOS:");
-		lbl_codigos.setBounds(15, 163, 126, 44);
+		lbl_codigos.setBounds(15, 219, 126, 44);
 		lbl_codigos.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lbl_drama = new JLabel("1.- DRAMA");
-		lbl_drama.setBounds(15, 205, 105, 34);
+		lbl_drama.setBounds(15, 261, 105, 34);
 		lbl_drama.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_comedia = new JLabel("2.- COMEDIA");
-		lbl_comedia.setBounds(15, 245, 105, 34);
+		lbl_comedia.setBounds(15, 301, 105, 34);
 		lbl_comedia.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_terror = new JLabel("3.- TERROR");
-		lbl_terror.setBounds(15, 285, 105, 34);
+		lbl_terror.setBounds(15, 341, 105, 34);
 		lbl_terror.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_cienciaf = new JLabel("4.- CIENCIA FICCI\u00D3N");
-		lbl_cienciaf.setBounds(15, 325, 186, 34);
+		lbl_cienciaf.setBounds(15, 381, 186, 34);
 		lbl_cienciaf.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.setLayout(null);
 		contentPane.add(lbl_logo);
@@ -167,20 +169,23 @@ public class VGeneros extends JFrame {
 		contentPane.add(table_domingo);
 		
 		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
+		rdbtn_sabado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		buttonGroup.add(rdbtn_sabado);
-		rdbtn_sabado.setBounds(11, 366, 78, 23);
+		groupDias.add(rdbtn_sabado);
+		rdbtn_sabado.setBounds(6, 167, 78, 23);
 		rdbtn_sabado.setBackground(new Color (156, 196, 236));
 		contentPane.add(rdbtn_sabado);
 		
 		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
+		rdbtn_domingo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		buttonGroup.add(rdbtn_domingo);
-		rdbtn_domingo.setBounds(11, 392, 90, 23);
+		groupDias.add(rdbtn_domingo);
+		rdbtn_domingo.setBounds(6, 196, 90, 23);
 		rdbtn_domingo.setBackground(new Color (156, 196, 236));
 		contentPane.add(rdbtn_domingo);
 		
 		JButton btn_ir = new JButton("Ir");
+		btn_ir.setEnabled(false);
 		btn_ir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_ir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_ir.setMargin(new Insets(2, 2, 2, 2));
@@ -192,8 +197,27 @@ public class VGeneros extends JFrame {
 		txtr_porfa.setFont(new Font("Tahoma", Font.BOLD, 13));
 		txtr_porfa.setDisabledTextColor(Color.RED);
 		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
-		txtr_porfa.setBounds(107, 368, 126, 71);
+		txtr_porfa.setBounds(102, 167, 126, 52);
 		txtr_porfa.setBackground(new Color (156, 196, 236));
 		contentPane.add(txtr_porfa);
+		
+		JLabel lbl_nube = new JLabel("");
+		lbl_nube.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\nube2.png"));
+		lbl_nube.setBounds(335, -15, 450, 245);
+		contentPane.add(lbl_nube);
+		
+		rdbtn_sabado.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn_ir.setEnabled(true);
+			}
+		});
+		
+		rdbtn_domingo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn_ir.setEnabled(true);
+			}
+		});
 	}
 }
