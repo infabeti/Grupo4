@@ -202,7 +202,7 @@ public class VGeneros extends JFrame {
 		contentPane.add(txtr_porfa);
 		
 		JLabel lbl_nube = new JLabel("");
-		lbl_nube.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\nube2.png"));
+		lbl_nube.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\nube.png"));
 		lbl_nube.setBounds(335, -15, 450, 245);
 		contentPane.add(lbl_nube);
 		
