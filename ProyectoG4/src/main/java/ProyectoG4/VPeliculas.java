@@ -256,10 +256,10 @@ public class VPeliculas extends JFrame {
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//la vetana de Bienvenida
-//				VBienvenida Bienvenida= new VBienvenida();
-//				Bienvenida.setVisible(true);
-//				dispose();
+				//la ventana de Bienvenida
+				VBienvenida Bienvenida= new VBienvenida();
+				Bienvenida.setVisible(true);
+				dispose();
 				
 			}
 		});
