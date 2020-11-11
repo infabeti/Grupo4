@@ -31,6 +31,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JProgressBar;
 
 public class VGeneros extends JFrame {
 
