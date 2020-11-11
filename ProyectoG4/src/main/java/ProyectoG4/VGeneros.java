@@ -29,6 +29,9 @@ import java.awt.Insets;
 import java.awt.Cursor;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JProgressBar;
@@ -40,6 +43,7 @@ public class VGeneros extends JFrame {
 	private JTable table_sabado;
 	private JTable table_domingo;
 	private final ButtonGroup groupDias = new ButtonGroup();
+	private final JButton btnCancelar = new JButton("Cancelar");
 
 	/**
 	 * Launch the application.
@@ -219,6 +223,37 @@ public class VGeneros extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				btn_ir.setEnabled(true);
 			}
+		});
+		btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCancelar.setBounds(685, 477, 89, 23);
+		btnCancelar.setBackground(Color.WHITE);
+		btnCancelar.setForeground(Color.BLACK);
+		contentPane.add(btnCancelar);
+		
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCancelar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//la vetana de Bienvenida
+//				VBienvenida Bienvenida= new VBienvenida();
+//				Bienvenida.setVisible(true);
+//				dispose();
+				
+			}
+		});
+		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.RED);
+		    	btnCancelar.setForeground(Color.YELLOW);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.WHITE);
+		    	btnCancelar.setForeground(Color.BLACK);
+		    }
 		});
 	}
 }

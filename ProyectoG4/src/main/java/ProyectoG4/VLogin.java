@@ -94,6 +94,19 @@ public class VLogin extends JFrame {
 		contentPane.add(lblLogo);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(197, 160, 89, 23);
+		contentPane.add(btnLogin);
+		
+		btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnLogin.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnLogin.setBackground(Color.WHITE);
+		    	btnLogin.setForeground(Color.BLACK);
+		    }
+		});
 		btnLogin.addMouseListener(new MouseAdapter() {
 	
 			public void mouseClicked(MouseEvent e) {
@@ -101,7 +114,7 @@ public class VLogin extends JFrame {
 				
 				String clavedef=new String(clave);
 				
-				if (textFieldUsuario.getText().equals("aitor") && clavedef.equals("123")) {
+				if (textFieldUsuario.getText().equals("admin") && clavedef.equals("admin")) {
 //					Si El field de usuario es igual al String Usuario y la contraseña al String Contrasena
 					
 					//la vetana de generos
@@ -116,8 +129,21 @@ public class VLogin extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(197, 160, 89, 23);
-		contentPane.add(btnLogin);
+		
+		btnCancelar.setBounds(335, 227, 89, 23);
+		contentPane.add(btnCancelar);
+		
+		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.RED);
+		    	btnCancelar.setForeground(Color.YELLOW);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.WHITE);
+		    	btnCancelar.setForeground(Color.BLACK);
+		    }
+		});
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -132,8 +158,5 @@ public class VLogin extends JFrame {
 				
 			}
 		});
-		btnCancelar.setBounds(335, 227, 89, 23);
-		
-		contentPane.add(btnCancelar);
 	}
 }

@@ -53,7 +53,7 @@ public class VResumen extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		setTitle("Resumen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color (156, 196, 236));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
