@@ -1,6 +1,6 @@
 package ProyectoG4;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -46,7 +46,7 @@ public class VFin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblNewLabel.setBounds(125, 68, 153, 14);
+		lblNewLabel.setBounds(130, 51, 153, 14);
 		
 		contentPane.add(lblNewLabel);
 		btnCancelar.setBounds(335, 227, 89, 23);

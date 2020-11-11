@@ -1,6 +1,5 @@
 package ProyectoG4;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,18 +10,22 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
 
-public class VConfirmacion extends JFrame {
 
+public class VConfirmacion extends JFrame implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
-	private final JLabel lblEstasSeguro = new JLabel("Estas seguro?");
+	private final JLabel lblEstasSeguro = new JLabel("\u00BFQuieres confirmar la compra?");
 	private final JButton btnSi = new JButton("Si");
 	private final JButton btnNo = new JButton("No");
-	private final JButton btnCancelar = new JButton("Cancelar");
 	private final JLabel lblLogo = new JLabel("");
 
 	/**
@@ -47,6 +50,9 @@ public class VConfirmacion extends JFrame {
 	public VConfirmacion() {
 		initGUI();
 	}
+	
+	
+	
 	private void initGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		setTitle("Confirmacion");
@@ -57,36 +63,41 @@ public class VConfirmacion extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblEstasSeguro.setBounds(168, 63, 79, 14);
+		lblEstasSeguro.setBounds(130, 95, 185, 14);
 		
 		contentPane.add(lblEstasSeguro);
-		btnSi.setBounds(87, 117, 89, 23);
 		
+		btnSi.setBounds(87, 165, 89, 23);
 		contentPane.add(btnSi);
-		btnNo.setBounds(223, 117, 89, 23);
+		btnSi.addActionListener(this);
 		
+		btnNo.setBounds(241, 165, 89, 23);
 		contentPane.add(btnNo);
-		btnCancelar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//la vetana de Bienvenida
-				VBienvenida Bienvenida= new VBienvenida();
-				Bienvenida.setVisible(true);
-				
-				dispose();
-			}
-		});
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnCancelar.setBounds(335, 227, 89, 23);
+		btnNo.addActionListener(this);
 		
-		contentPane.add(btnCancelar);
 		lblLogo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		lblLogo.setBounds(345, 0, 89, 94);
 		
 		contentPane.add(lblLogo);
+		
+		
 	}
+	
+	//Ordenamos a los botones a enviarnos a otra ventana
+	public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnSi) {
+            VFin vent = new VFin();
+            vent.setVisible(true);
+            vent.setResizable(false);
+            this.setVisible(false);
+        }
+        if (e.getSource() == btnNo) {
+        	VBienvenida Ventana = new VBienvenida();
+            Ventana.setVisible(true);
+            Ventana.setResizable(false);
+            this.setVisible(false);
+          
+    }
 
+}
 }
