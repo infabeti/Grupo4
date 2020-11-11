@@ -1,90 +1,103 @@
 package ProyectoG4;
 
-	import java.util.Timer;
-	import java.util.TimerTask;
-	import javax.swing.*;
+
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
-	public class VBienvenida extends JFrame {
-	    /**
-		 * 
-		 */
-		
-	private static final long serialVersionUID = 1L;
-		
-	private JLabel bienvenido,bienvenido2,cinecss,text/*,logo*/;
-	   
-	    public VBienvenida(){
-	    	setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
-	    	setTitle("Bienvenida");
+public class VBienvenida extends JFrame {
 
-
-
-	        
-	       Timer cronom=new Timer();
-	        cronom.schedule(new TimerTask(){
-	            
-	        public void run(){    
-	        	VLogin.tempologin=new VLogin();
-	        	VLogin.tempologin.setVisible(true);
-	        	VLogin.tempologin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	            dispose();
-	        }},3000);
-
-
-	    	initGUI();
-	    }
-	    private void initGUI() {
-	    	getContentPane().setBackground(new Color (156, 196, 236));
-	    	
-	    	getContentPane().setLayout(null);
-	    	
-	    	 bienvenido=new JLabel("¡Bienvenido/a!");
-	    	bienvenido.setBounds(258,171,345,60);
-	    	bienvenido.setFont(bienvenido.getFont().deriveFont(50f));
-	    	getContentPane().add(bienvenido);
-	    	
-	        bienvenido2=new JLabel("app diseñada para");
-	    	bienvenido2.setBounds(267,259,254,60);
-	    	bienvenido2.setFont(bienvenido2.getFont().deriveFont(30f));
-	    	getContentPane().add(bienvenido2);
-	    	
-	        cinecss=new JLabel("CINES CSS");
-	    	cinecss.setBounds(323,319,157,60);
-	    	cinecss.setFont(cinecss.getFont().deriveFont(30f));
-	    	getContentPane().add(cinecss);
-	    	
-	    	text=new JLabel("A continuación podrás elegir la cartelera del próximo fin de semana");
-	    	text.setBounds(340,492,445,60);
-	    	text.setFont(text.getFont().deriveFont(15f));
-	    	getContentPane().add(text);
-	    	
-	    	JLabel lblNewLabel = new JLabel("");
-	    	lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
-	    	lblNewLabel.setBounds(32, 27, 94, 143);
-	    	getContentPane().add(lblNewLabel);
-	    	
-	    		        
-	    		       Timer cronom=new Timer();
-	    	cronom.schedule(new TimerTask(){
-	    	    
-	    	public void run(){    
-	    		VLogin.tempologin=new VLogin();
-	    		VLogin.tempologin.setVisible(true);
-	    		VLogin.tempologin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    	    dispose();
-	    	}},3000);
-	    }
-
-	   
-	    public static void main(String[] ar){
-	       
-	    	VBienvenida inicio=new VBienvenida();
-	    	
-	    	inicio.setVisible(true);
-	    	inicio.setTitle("Bienvenido");
-	         
-	         
-	    }
+	private JPanel contentPane;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+								
+				try {
+					VBienvenida frame = new VBienvenida();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public VBienvenida() {
+		
+		Timer cronom=new Timer();
+        cronom.schedule(new TimerTask(){
+            
+        public void run(){    
+        	VLogin.tempologin=new VLogin();
+        	VLogin.tempologin.setVisible(true);
+        	VLogin.tempologin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            dispose();
+        }},3000);
+        
+        
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setTitle("Bienvenida");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 869, 581);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color (156, 196, 236));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblBienvenida = new JLabel("Bienvenido/a");
+		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBienvenida.setFont(new Font("Freestyle Script", Font.PLAIN, 70));
+		lblBienvenida.setBounds(242, 69, 332, 135);
+		contentPane.add(lblBienvenida);
+		
+		JLabel lblAppDiseñada = new JLabel("App dise\u00F1ada para");
+		lblAppDiseñada.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAppDiseñada.setFont(new Font("Freestyle Script", Font.PLAIN, 45));
+		lblAppDiseñada.setBounds(282, 199, 261, 107);
+		contentPane.add(lblAppDiseñada);
+		
+		JLabel lblCineSS = new JLabel("Cine CSS");
+		lblCineSS.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCineSS.setFont(new Font("Freestyle Script", Font.PLAIN, 40));
+		lblCineSS.setBounds(325, 297, 163, 135);
+		contentPane.add(lblCineSS);
+		
+		JLabel lblNube = new JLabel("");
+		lblNube.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\nube.png"));
+		lblNube.setBounds(252, 11, 517, 366);
+		contentPane.add(lblNube);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		lblLogo.setBounds(10, 11, 104, 141);
+		contentPane.add(lblLogo);
+		
+		JLabel lblNewLabel = new JLabel("A continuaci\u00F3n podr\u00E1s elegir la cartelera del pr\u00F3ximo fin de semana");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(214, 503, 629, 28);
+		contentPane.add(lblNewLabel);
+	}
+	
+
+}
