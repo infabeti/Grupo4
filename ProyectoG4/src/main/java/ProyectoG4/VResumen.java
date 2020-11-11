@@ -14,13 +14,15 @@ import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VResumen extends JFrame {
 
 	private JPanel contentPane;
 	private final JLabel lblResCarteleraSemana = new JLabel("Resumen de la cartelera de la semana");
 	private final JLabel lblNewLabel = new JLabel("");
-	private final JLabel lblSemana = new JLabel("xx/xx/xxxx");
 	private final JList listSabado = new JList();
 	private final JList listDomingo = new JList();
 	private final JLabel lblSabado = new JLabel("Sabado");
@@ -50,7 +52,7 @@ public class VResumen extends JFrame {
 		initGUI();
 	}
 	private void initGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
 		setTitle("Resumen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 550);
@@ -59,40 +61,61 @@ public class VResumen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblResCarteleraSemana.setBounds(32, 42, 190, 14);
+		lblResCarteleraSemana.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblResCarteleraSemana.setBounds(218, 61, 351, 37);
 		
 		contentPane.add(lblResCarteleraSemana);
 		lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
 		lblNewLabel.setBounds(341, 0, 93, 93);
 		
 		contentPane.add(lblNewLabel);
-		lblSemana.setBounds(232, 42, 77, 14);
-		
-		contentPane.add(lblSemana);
-		listSabado.setBounds(70, 92, 77, 146);
+		listSabado.setBounds(199, 225, 77, 146);
 		
 		contentPane.add(listSabado);
-		listDomingo.setBounds(199, 92, 77, 146);
+		listDomingo.setBounds(387, 225, 77, 146);
 		
 		contentPane.add(listDomingo);
-		lblSabado.setBounds(80, 67, 46, 14);
+		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblSabado.setBounds(166, 128, 148, 86);
 		
 		contentPane.add(lblSabado);
-		lblDomingo.setBounds(202, 67, 46, 14);
+		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblDomingo.setBounds(387, 121, 111, 93);
 		
 		contentPane.add(lblDomingo);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//la vetana de Bienvenida
-//				VBienvenida Bienvenida= new VBienvenida();
-//				Bienvenida.setVisible(true);
-//				dispose();
+				VBienvenida Bienvenida= new VBienvenida();
+				Bienvenida.setVisible(true);
+				dispose();
 			}
 		});
-		btnCancelar.setBounds(341, 227, 89, 23);
+		btnCancelar.setBounds(685, 477, 89, 23);
 		
 		contentPane.add(btnCancelar);
+		
+		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//La ventana de Confirmacion
+				VConfirmacion Confirmacion= new VConfirmacion();
+				Confirmacion.setVisible(true);
+				dispose();
+			}
+		});
+		btnSiguiente.setBounds(586, 477, 89, 23);
+		contentPane.add(btnSiguiente);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		lblNewLabel_1.setBounds(0, 0, 93, 112);
+		contentPane.add(lblNewLabel_1);
 	}
-
 }
