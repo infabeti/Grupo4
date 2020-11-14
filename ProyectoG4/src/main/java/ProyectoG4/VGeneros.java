@@ -65,7 +65,7 @@ public class VGeneros extends JFrame {
 	 * Create the frame.
 	 */
 	public VGeneros() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VGeneros.class.getResource("/iconos/cineCSS.png")));
 		setFocusTraversalPolicyProvider(true);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
@@ -89,7 +89,7 @@ public class VGeneros extends JFrame {
 		lbl_logo.setName("");
 		lbl_logo.setSize(90, 92);
 		lbl_logo.setLocation(10,5);
-		lbl_logo.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));  
+		lbl_logo.setIcon(new ImageIcon(VGeneros.class.getResource("/iconos/cineCSS.png")));  
 		
 		JLabel lbl_codigos = new JLabel("C\u00D3DIGOS:");
 		lbl_codigos.setBounds(15, 219, 126, 44);
@@ -207,7 +207,7 @@ public class VGeneros extends JFrame {
 		contentPane.add(txtr_porfa);
 		
 		JLabel lbl_nube = new JLabel("");
-		lbl_nube.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\nube.png"));
+		lbl_nube.setIcon(new ImageIcon(VGeneros.class.getResource("/iconos/nube.png")));
 		lbl_nube.setBounds(335, -15, 450, 245);
 		contentPane.add(lbl_nube);
 		

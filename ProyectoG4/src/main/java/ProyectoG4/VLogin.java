@@ -55,7 +55,7 @@ public class VLogin extends JFrame {
 		initGUI();
 	}
 	private void initGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VLogin.class.getResource("/iconos/cineCSS.png")));
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -89,7 +89,7 @@ public class VLogin extends JFrame {
 		contentPane.add(passwordField);
 		
 		lblLogo = new JLabel((String) null);
-		lblLogo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
+		lblLogo.setIcon(new ImageIcon(VLogin.class.getResource("/iconos/cineCSS.png")));
 		lblLogo.setBounds(344, 0, 90, 91);
 		contentPane.add(lblLogo);
 		

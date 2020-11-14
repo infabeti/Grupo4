@@ -54,7 +54,7 @@ public class VBienvenida extends JFrame {
         }},3000);
         
         
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VBienvenida.class.getResource("/iconos/cineCSS.png")));
 		setTitle("Bienvenida");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 869, 581);
@@ -83,12 +83,12 @@ public class VBienvenida extends JFrame {
 		contentPane.add(lblCineSS);
 		
 		JLabel lblNube = new JLabel("");
-		lblNube.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\nube.png"));
+		lblNube.setIcon(new ImageIcon(VBienvenida.class.getResource("/iconos/nube.png")));
 		lblNube.setBounds(252, 11, 517, 366);
 		contentPane.add(lblNube);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		lblLogo.setIcon(new ImageIcon(VBienvenida.class.getResource("/iconos/cineCSS.png")));
 		lblLogo.setBounds(10, 11, 104, 141);
 		contentPane.add(lblLogo);
 		
