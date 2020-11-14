@@ -88,7 +88,7 @@ public class VPeliculas extends JFrame {
 		lbl_logo.setName("");
 		lbl_logo.setSize(90, 92);
 		lbl_logo.setLocation(10,5);
-		lbl_logo.setIcon(new ImageIcon("C:\\unaiworkspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));  
+		lbl_logo.setIcon(new ImageIcon(getClass().getResource("imagenes/cineCSS.png")));
 		
 		contentPane.add(lblHaseleccionado);
 		lblGeneroSeleccionado.addContainerListener(new ContainerAdapter() {
