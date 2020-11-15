@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JList;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -115,16 +117,16 @@ public class VPeliculas extends JFrame {
 		lbl_genero.setFont(new Font("Caladea", Font.BOLD, 30));
 		lbl_genero.setBounds(332, 35, 197, 25);
 		contentPane.add(lbl_genero);
+
 		btn_1_handia.setVisible(false);
 		btn_1_handia.setEnabled(false);
-		btn_1_handia.setToolTipText("Handia, 1 h 56 min");
-		
 		btn_1_handia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_1_handia.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_1_handia.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/01.Handia.png")));
 		btn_1_handia.setBounds(50, 165, 150, 200);
+		btn_1_handia.setToolTipText("Handia, 1 h 56 min");
 		contentPane.add(btn_1_handia);
-		btn_1_listaSch.setToolTipText("La lista de Schindler, 3 h 17 min");
+
 		
 		btn_1_listaSch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_1_listaSch.setVisible(false);
@@ -132,8 +134,9 @@ public class VPeliculas extends JFrame {
 		btn_1_listaSch.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_1_listaSch.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/01.ListaSch.png")));
 		btn_1_listaSch.setBounds(230, 165, 150, 200);
+		btn_1_listaSch.setToolTipText("La lista de Schindler, 3 h 17 min");
 		contentPane.add(btn_1_listaSch);
-		btn_1_cadenaPerp.setToolTipText("Cadena Perpetua, 2 h 22 min");
+
 		
 		btn_1_cadenaPerp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_1_cadenaPerp.setVisible(false);
@@ -141,8 +144,9 @@ public class VPeliculas extends JFrame {
 		btn_1_cadenaPerp.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_1_cadenaPerp.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/01.CadenaPerp.png")));
 		btn_1_cadenaPerp.setBounds(410, 165, 150, 200);
+		btn_1_cadenaPerp.setToolTipText("Cadena Perpetua, 2 h 22 min");
 		contentPane.add(btn_1_cadenaPerp);
-		btn_1_millionDollar.setToolTipText("Million Dollar Baby, 2 h 13 min");
+		
 		
 		btn_1_millionDollar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_1_millionDollar.setVisible(false);
@@ -150,8 +154,9 @@ public class VPeliculas extends JFrame {
 		btn_1_millionDollar.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_1_millionDollar.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/01.MillionDollar.png")));
 		btn_1_millionDollar.setBounds(590, 165, 150, 200);
+		btn_1_millionDollar.setToolTipText("Million Dollar Baby, 2 h 13 min");
 		contentPane.add(btn_1_millionDollar);
-		btn_2_scaryMovie.setToolTipText("Scary movie, 1 h 30 min");
+
 		
 		btn_2_scaryMovie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_2_scaryMovie.setEnabled(false);
@@ -159,8 +164,9 @@ public class VPeliculas extends JFrame {
 		btn_2_scaryMovie.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_2_scaryMovie.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/02.ScaryMovie.png")));
 		btn_2_scaryMovie.setBounds(50, 165, 150, 200);
+		btn_2_scaryMovie.setToolTipText("Scary movie, 1 h 30 min");
 		contentPane.add(btn_2_scaryMovie);
-		btn_2_granLebow.setToolTipText("El gran Lebowsky, 1 h 59 min");
+	
 		
 		btn_2_granLebow.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_2_granLebow.setEnabled(false);
@@ -168,8 +174,9 @@ public class VPeliculas extends JFrame {
 		btn_2_granLebow.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_2_granLebow.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/02.GranLebow.png")));
 		btn_2_granLebow.setBounds(230, 165, 150, 200);
+		btn_2_granLebow.setToolTipText("El gran Lebowsky, 1 h 59 min");
 		contentPane.add(btn_2_granLebow);
-		btn_2_vidaBrian.setToolTipText("La vida de Brian, 1 h 34 min");
+		
 		
 		btn_2_vidaBrian.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_2_vidaBrian.setEnabled(false);
@@ -177,8 +184,9 @@ public class VPeliculas extends JFrame {
 		btn_2_vidaBrian.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_2_vidaBrian.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/02.VidaBrian.png")));
 		btn_2_vidaBrian.setBounds(410, 165, 150, 200);
+		btn_2_vidaBrian.setToolTipText("La vida de Brian, 1 h 34 min");
 		contentPane.add(btn_2_vidaBrian);
-		btn_2_aterriza.setToolTipText("Aterriza como puedas, 1 h 28 min");
+		
 		
 		btn_2_aterriza.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_2_aterriza.setEnabled(false);
@@ -186,8 +194,9 @@ public class VPeliculas extends JFrame {
 		btn_2_aterriza.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_2_aterriza.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/02.Aterriza.png")));
 		btn_2_aterriza.setBounds(590, 165, 150, 200);
+		btn_2_aterriza.setToolTipText("Aterriza como puedas, 1 h 28 min");
 		contentPane.add(btn_2_aterriza);
-		btn_3_psicosis.setToolTipText("Psicosis, 1 h 49 min");
+		
 		
 		btn_3_psicosis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_3_psicosis.setEnabled(false);
@@ -195,8 +204,9 @@ public class VPeliculas extends JFrame {
 		btn_3_psicosis.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_3_psicosis.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/03.Psicosis.png")));
 		btn_3_psicosis.setBounds(50, 165, 150, 200);
+		btn_3_psicosis.setToolTipText("Psicosis, 1 h 49 min");
 		contentPane.add(btn_3_psicosis);
-		btn_3_resplandor.setToolTipText("El resplandor, 2 h 26 min");
+		
 		
 		btn_3_resplandor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_3_resplandor.setEnabled(false);
@@ -204,8 +214,9 @@ public class VPeliculas extends JFrame {
 		btn_3_resplandor.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_3_resplandor.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/03.Resplandor.png")));
 		btn_3_resplandor.setBounds(230, 165, 150, 200);
+		btn_3_resplandor.setToolTipText("El resplandor, 2 h 26 min");
 		contentPane.add(btn_3_resplandor);
-		btn_3_dracula.setToolTipText("Dracula, 2 h 35 min");
+		
 		
 		btn_3_dracula.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_3_dracula.setEnabled(false);
@@ -213,8 +224,9 @@ public class VPeliculas extends JFrame {
 		btn_3_dracula.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_3_dracula.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/03.Dracula.png")));
 		btn_3_dracula.setBounds(410, 165, 150, 200);
+		btn_3_dracula.setToolTipText("Dracula, 2 h 35 min");
 		contentPane.add(btn_3_dracula);
-		btn_3_cisne.setToolTipText("Cisne negro, 1 h 50 min");
+		
 		
 		btn_3_cisne.setEnabled(false);
 		btn_3_cisne.setVisible(false);
@@ -222,43 +234,49 @@ public class VPeliculas extends JFrame {
 		btn_3_cisne.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_3_cisne.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/03.CisneNegro.png")));
 		btn_3_cisne.setBounds(590, 165, 150, 200);
+		btn_3_cisne.setToolTipText("Cisne negro, 1 h 50 min");
 		contentPane.add(btn_3_cisne);
+		
+
 		btn_4_2001.setEnabled(false);
 		btn_4_2001.setVisible(false);
-		btn_4_2001.setToolTipText("2001: Odisea en el espacio, 2 h 22 min");
-		
 		btn_4_2001.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_4_2001.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_4_2001.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.2001.png")));
 		btn_4_2001.setBounds(50, 165, 150, 200);
+		btn_4_2001.setToolTipText("2001: Odisea en el espacio, 2 h 22 min");
 		contentPane.add(btn_4_2001);
+		
+		
 		btn_4_noviaFrank.setVisible(false);
 		btn_4_noviaFrank.setEnabled(false);
-		btn_4_noviaFrank.setToolTipText("La novia de Frankenstein, 1 h 15 min");
-		
 		btn_4_noviaFrank.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_4_noviaFrank.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_4_noviaFrank.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.NoviaFrank.png")));
 		btn_4_noviaFrank.setBounds(230, 165, 150, 200);
+		btn_4_noviaFrank.setToolTipText("La novia de Frankenstein, 1 h 15 min");
 		contentPane.add(btn_4_noviaFrank);
-		btn_4_planetaSimios.setVisible(false);
-		btn_4_planetaSimios.setEnabled(false);
-		btn_4_planetaSimios.setToolTipText("El planeta de los simios, 1 h 55 min");
 		
+		
+		btn_4_planetaSimios.setVisible(false);
+		btn_4_planetaSimios.setEnabled(false);	
 		btn_4_planetaSimios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_4_planetaSimios.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_4_planetaSimios.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.PlanetaSimios.png")));
 		btn_4_planetaSimios.setBounds(410, 165, 150, 200);
+		btn_4_planetaSimios.setToolTipText("El planeta de los simios, 1 h 55 min");
 		contentPane.add(btn_4_planetaSimios);
-		btn_4_alien.setEnabled(false);
-		btn_4_alien.setVisible(false);
-		btn_4_alien.setToolTipText("Alien, el octavo pasajero, 1 h 57 min");
+			
 		
+		btn_4_alien.setEnabled(false);
+		btn_4_alien.setVisible(false);	
 		btn_4_alien.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_4_alien.setHorizontalTextPosition(SwingConstants.CENTER);
 		btn_4_alien.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.Alien.png")));
 		btn_4_alien.setBounds(590, 165, 150, 200);
+		btn_4_alien.setToolTipText("Alien, el octavo pasajero, 1 h 57 min");
 		contentPane.add(btn_4_alien);
+			
 		
 		JLabel lbl_nube = new JLabel("");
 		lbl_nube.setIcon(new ImageIcon(VPeliculas.class.getResource("/iconos/nube.png")));
@@ -271,38 +289,56 @@ public class VPeliculas extends JFrame {
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
 		
-//		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
-//		rdbtn_domingo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				
-//			}
-//		});
-//		buttonGroup.add(rdbtn_domingo);
-//		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-//		rdbtn_domingo.setBackground(new Color(156, 196, 236));
-//		rdbtn_domingo.setBounds(10, 417, 90, 23);
-//		contentPane.add(rdbtn_domingo);
-//		
-//		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
-//		rdbtn_sabado.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				
-//			}
-//		});
-//		buttonGroup.add(rdbtn_sabado);
-//		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-//		rdbtn_sabado.setBackground(new Color(156, 196, 236));
-//		rdbtn_sabado.setBounds(10, 388, 78, 23);
-//		contentPane.add(rdbtn_sabado);
-//		
-//		JTextArea txtr_porfa = new JTextArea();
-//		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
-//		txtr_porfa.setForeground(Color.RED);
-//		txtr_porfa.setFont(new Font("Tahoma", Font.BOLD, 13));
-//		txtr_porfa.setDisabledTextColor(Color.RED);
-//		txtr_porfa.setBackground(new Color(156, 196, 236));
-//		txtr_porfa.setBounds(106, 388, 126, 52);
-//		contentPane.add(txtr_porfa);
+		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
+		rdbtn_domingo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		buttonGroup.add(rdbtn_domingo);
+		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtn_domingo.setBackground(new Color(156, 196, 236));
+		rdbtn_domingo.setBounds(10, 417, 90, 23);
+		contentPane.add(rdbtn_domingo);
+		
+		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
+		rdbtn_sabado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btn_1_handia.setEnabled(true);
+				btn_1_listaSch.setEnabled(true);
+				btn_1_cadenaPerp.setEnabled(true);
+				btn_1_millionDollar.setEnabled(true);
+				///////////////////////////////////
+				btn_2_scaryMovie.setEnabled(true);
+				btn_2_granLebow.setEnabled(true);
+				btn_2_vidaBrian.setEnabled(true);
+				btn_2_aterriza.setEnabled(true);
+				///////////////////////////////////
+				btn_3_psicosis.setEnabled(true);
+				btn_3_resplandor.setEnabled(true);
+				btn_3_dracula.setEnabled(true);
+				btn_3_cisne.setEnabled(true);
+				///////////////////////////////////
+				btn_4_2001.setEnabled(true);
+				btn_4_noviaFrank.setEnabled(true);
+				btn_4_planetaSimios.setEnabled(true);
+				btn_4_alien.setEnabled(true);
+			}
+		});
+		buttonGroup.add(rdbtn_sabado);
+		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtn_sabado.setBackground(new Color(156, 196, 236));
+		rdbtn_sabado.setBounds(10, 388, 78, 23);
+		contentPane.add(rdbtn_sabado);
+		
+		JTextArea txtr_porfa = new JTextArea();
+		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
+		txtr_porfa.setForeground(Color.RED);
+		txtr_porfa.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtr_porfa.setDisabledTextColor(Color.RED);
+		txtr_porfa.setBackground(new Color(156, 196, 236));
+		txtr_porfa.setBounds(106, 388, 126, 52);
+		contentPane.add(txtr_porfa);
 		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -329,5 +365,153 @@ public class VPeliculas extends JFrame {
 		    	btnCancelar.setForeground(Color.BLACK);
 		    }
 		});
+		btn_1_handia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_1_listaSch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_1_cadenaPerp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_1_millionDollar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+/////////////////////////////////////////////////////////////////////////////
+		btn_2_scaryMovie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_2_granLebow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_2_vidaBrian.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_2_aterriza.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+/////////////////////////////////////////////////////////////////////////////
+		btn_3_psicosis.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_3_resplandor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_3_dracula.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_3_cisne.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+/////////////////////////////////////////////////////////////////////////////
+		btn_4_2001.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_4_noviaFrank.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_4_planetaSimios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});
+		btn_4_alien.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(rdbtn_sabado.isSelected()){
+		        }
+				if(rdbtn_domingo.isSelected()){
+					
+		        }
+			}
+		});	
 	}
 }

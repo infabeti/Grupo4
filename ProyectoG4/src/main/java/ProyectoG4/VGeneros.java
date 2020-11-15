@@ -13,6 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
@@ -25,11 +30,15 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Insets;
 import java.awt.Cursor;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
 import javax.swing.JTextArea;
 
 import java.awt.event.ActionEvent;
@@ -39,13 +48,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JProgressBar;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.ListSelectionModel;
 
 public class VGeneros extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_codigo;
-	private JTable table_sabado;
-	private JTable table_domingo;
 	private final ButtonGroup groupDias = new ButtonGroup();
 	private final JButton btnCancelar = new JButton("Cancelar");
 
@@ -55,12 +65,8 @@ public class VGeneros extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
 					VGeneros frame = new VGeneros();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		});
 	}
@@ -134,53 +140,17 @@ public class VGeneros extends JFrame {
 		lbl_domingo.setBounds(573, 132, 81, 14);
 		contentPane.add(lbl_domingo);
 		
-		table_sabado = new JTable();
-		table_sabado.setRowSelectionAllowed(false);
-		table_sabado.setSelectionForeground(Color.LIGHT_GRAY);
-		table_sabado.setRowHeight(50);
-		table_sabado.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		table_sabado.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"Horas", "Pel\u00EDculas"
-			}
-		));
-		table_sabado.getColumnModel().getColumn(0).setPreferredWidth(60);
-		table_sabado.getColumnModel().getColumn(1).setPreferredWidth(125);
-		table_sabado.setBounds(258, 165, 220, 250);
-		contentPane.add(table_sabado);
-		
-		table_domingo = new JTable();
-		table_domingo.setRowSelectionAllowed(false);
-		table_domingo.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"Horas", "Pel\u00EDculas"
-			}
-		));
-		table_domingo.getColumnModel().getColumn(0).setPreferredWidth(60);
-		table_domingo.getColumnModel().getColumn(1).setPreferredWidth(125);
-		table_domingo.setRowHeight(50);
-		table_domingo.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		table_domingo.setBounds(505, 165, 220, 250);
-		contentPane.add(table_domingo);
-		
 		
 		JButton btn_ir = new JButton("Ir");
-		btn_ir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btn_ir.setEnabled(true);
+		btn_ir.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_ir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btn_ir.setMargin(new Insets(2, 2, 2, 2));
+		btn_ir.setBounds(207, 124, 41, 34);
+		contentPane.add(btn_ir);
+		
+		btn_ir.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
 				int i=Integer.parseInt(textField_codigo.getText());
 				if (i == 1) {
 					VPeliculas PelisDrama =new VPeliculas();
@@ -189,15 +159,11 @@ public class VGeneros extends JFrame {
 					PelisDrama.setResizable(false);
 					PelisDrama.lbl_genero.setText("Drama");
 					PelisDrama.btn_1_handia.setVisible(true);
-					PelisDrama.btn_1_handia.setEnabled(true);
 					PelisDrama.btn_1_listaSch.setVisible(true);
-					PelisDrama.btn_1_listaSch.setEnabled(true);
 					PelisDrama.btn_1_cadenaPerp.setVisible(true);
-					PelisDrama.btn_1_cadenaPerp.setEnabled(true);
 					PelisDrama.btn_1_millionDollar.setVisible(true);
-					PelisDrama.btn_1_millionDollar.setEnabled(true);
-			        this.setVisible(false);
-				}
+					setVisible(true); 
+				}	
 				if (i == 2) {
 					VPeliculas PelisComedia =new VPeliculas();
 					PelisComedia.setBounds (100, 100, 800, 550);
@@ -205,14 +171,10 @@ public class VGeneros extends JFrame {
 					PelisComedia.setResizable(false);
 					PelisComedia.lbl_genero.setText("Comedia");
 					PelisComedia.btn_2_scaryMovie.setVisible(true);
-					PelisComedia.btn_2_scaryMovie.setEnabled(true);
 					PelisComedia.btn_2_granLebow.setVisible(true);
-					PelisComedia.btn_2_granLebow.setEnabled(true);
 					PelisComedia.btn_2_vidaBrian.setVisible(true);
-					PelisComedia.btn_2_vidaBrian.setEnabled(true);
 					PelisComedia.btn_2_aterriza.setVisible(true);
-					PelisComedia.btn_2_aterriza.setEnabled(true);
-			        this.setVisible(false);
+			        setVisible(false);
 				}
 				if (i == 3) {
 					VPeliculas PelisTerror =new VPeliculas();
@@ -221,14 +183,10 @@ public class VGeneros extends JFrame {
 					PelisTerror.setResizable(false);
 					PelisTerror.lbl_genero.setText("Terror");
 					PelisTerror.btn_3_psicosis.setVisible(true);
-					PelisTerror.btn_3_psicosis.setEnabled(true);
 					PelisTerror.btn_3_resplandor.setVisible(true);
-					PelisTerror.btn_3_resplandor.setEnabled(true);
 					PelisTerror.btn_3_dracula.setVisible(true);
-					PelisTerror.btn_3_dracula.setEnabled(true);
 					PelisTerror.btn_3_cisne.setVisible(true);
-					PelisTerror.btn_3_cisne.setEnabled(true);
-			        this.setVisible(false);
+			        setVisible(false);
 				}
 				if (i == 4) {
 					VPeliculas PelisSciFi =new VPeliculas();
@@ -237,28 +195,13 @@ public class VGeneros extends JFrame {
 					PelisSciFi.setResizable(false);
 					PelisSciFi.lbl_genero.setText("Ciencia ficción");
 					PelisSciFi.btn_4_2001.setVisible(true);
-					PelisSciFi.btn_4_2001.setEnabled(true);
 					PelisSciFi.btn_4_noviaFrank.setVisible(true);
-					PelisSciFi.btn_4_noviaFrank.setEnabled(true);
 					PelisSciFi.btn_4_planetaSimios.setVisible(true);
-					PelisSciFi.btn_4_planetaSimios.setEnabled(true);
 					PelisSciFi.btn_4_alien.setVisible(true);
-					PelisSciFi.btn_4_alien.setEnabled(true);
-			        this.setVisible(false);
+			        setVisible(false);
 				}
-			}
+			}});
 
-			private void setVisible(boolean b) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		btn_ir.setEnabled(true);
-		btn_ir.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btn_ir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btn_ir.setMargin(new Insets(2, 2, 2, 2));
-		btn_ir.setBounds(207, 124, 41, 34);
-		contentPane.add(btn_ir);
 		
 		JLabel lbl_nube = new JLabel("");
 		lbl_nube.setIcon(new ImageIcon(VGeneros.class.getResource("/iconos/nube.png")));
@@ -270,6 +213,17 @@ public class VGeneros extends JFrame {
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
+		
+		
+		JList list_domingo = new JList();
+		list_domingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_domingo.setBounds(513, 174, 39, 196);
+		contentPane.add(list_domingo);
+		
+		JList list_sabado = new JList();
+		list_sabado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_sabado.setBounds(364, 174, 39, 196);
+		contentPane.add(list_sabado);
 		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
