@@ -27,6 +27,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
 import javax.swing.JTextPane;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class VPeliculas extends JFrame {
 
@@ -34,24 +36,25 @@ public class VPeliculas extends JFrame {
 	private final JLabel lblHaseleccionado = new JLabel("Has seleccionado el g\u00E9nero:");
 	private final JLabel lblGeneroSeleccionado = new JLabel("");
 	private final JLabel lblEstassonpelisdisponibles = new JLabel("Estas son las peliculas disponibles:");
-	private final JLabel lbl_genero = new JLabel("Ciencia ficci\u00F3n");
-	private final JButton btn_1_handia = new JButton("");
-	private final JButton btn_1_listaSch = new JButton("");
-	private final JButton btn_1_cadenaPerp = new JButton("");
-	private final JButton btn_1_millionDollar = new JButton("");
-	private final JButton btn_4_2001 = new JButton("");
-	private final JButton btn_4_noviaFrank = new JButton("");
-	private final JButton btn_4_planetaSimios = new JButton("");
-	private final JButton btn_4_alien = new JButton("");
-	private final JButton btn_2_scaryMovie = new JButton("");
-	private final JButton btn_2_granLebow = new JButton("");
-	private final JButton btn_2_vidaBrian = new JButton("");
-	private final JButton btn_2_aterriza = new JButton("");
-	private final JButton btn_3_psicosis = new JButton("");
-	private final JButton btn_3_resplandor = new JButton("");
-	private final JButton btn_3_dracula = new JButton("");
-	private final JButton btn_3_cisne = new JButton("");
+	final JLabel lbl_genero = new JLabel("");
+	final JButton btn_1_handia = new JButton("");
+	final JButton btn_1_listaSch = new JButton("");
+	final JButton btn_1_cadenaPerp = new JButton("");
+	final JButton btn_1_millionDollar = new JButton("");
+	final JButton btn_2_scaryMovie = new JButton("");
+	final JButton btn_2_granLebow = new JButton("");
+	final JButton btn_2_vidaBrian = new JButton("");
+	final JButton btn_2_aterriza = new JButton("");
+	final JButton btn_3_psicosis = new JButton("");
+	final JButton btn_3_resplandor = new JButton("");
+	final JButton btn_3_dracula = new JButton("");
+	final JButton btn_3_cisne = new JButton("");
+	final JButton btn_4_2001 = new JButton("");
+	final JButton btn_4_noviaFrank = new JButton("");
+	final JButton btn_4_planetaSimios = new JButton("");
+	final JButton btn_4_alien = new JButton("");
 	private final JButton btnCancelar = new JButton("Cancelar");
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -220,6 +223,8 @@ public class VPeliculas extends JFrame {
 		btn_3_cisne.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/03.CisneNegro.png")));
 		btn_3_cisne.setBounds(590, 165, 150, 200);
 		contentPane.add(btn_3_cisne);
+		btn_4_2001.setEnabled(false);
+		btn_4_2001.setVisible(false);
 		btn_4_2001.setToolTipText("2001: Odisea en el espacio, 2 h 22 min");
 		
 		btn_4_2001.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -227,6 +232,8 @@ public class VPeliculas extends JFrame {
 		btn_4_2001.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.2001.png")));
 		btn_4_2001.setBounds(50, 165, 150, 200);
 		contentPane.add(btn_4_2001);
+		btn_4_noviaFrank.setVisible(false);
+		btn_4_noviaFrank.setEnabled(false);
 		btn_4_noviaFrank.setToolTipText("La novia de Frankenstein, 1 h 15 min");
 		
 		btn_4_noviaFrank.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -234,6 +241,8 @@ public class VPeliculas extends JFrame {
 		btn_4_noviaFrank.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.NoviaFrank.png")));
 		btn_4_noviaFrank.setBounds(230, 165, 150, 200);
 		contentPane.add(btn_4_noviaFrank);
+		btn_4_planetaSimios.setVisible(false);
+		btn_4_planetaSimios.setEnabled(false);
 		btn_4_planetaSimios.setToolTipText("El planeta de los simios, 1 h 55 min");
 		
 		btn_4_planetaSimios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -241,6 +250,8 @@ public class VPeliculas extends JFrame {
 		btn_4_planetaSimios.setIcon(new ImageIcon(VPeliculas.class.getResource("/Peliculas/04.PlanetaSimios.png")));
 		btn_4_planetaSimios.setBounds(410, 165, 150, 200);
 		contentPane.add(btn_4_planetaSimios);
+		btn_4_alien.setEnabled(false);
+		btn_4_alien.setVisible(false);
 		btn_4_alien.setToolTipText("Alien, el octavo pasajero, 1 h 57 min");
 		
 		btn_4_alien.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -259,6 +270,39 @@ public class VPeliculas extends JFrame {
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
+		
+//		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
+//		rdbtn_domingo.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				
+//			}
+//		});
+//		buttonGroup.add(rdbtn_domingo);
+//		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+//		rdbtn_domingo.setBackground(new Color(156, 196, 236));
+//		rdbtn_domingo.setBounds(10, 417, 90, 23);
+//		contentPane.add(rdbtn_domingo);
+//		
+//		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
+//		rdbtn_sabado.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				
+//			}
+//		});
+//		buttonGroup.add(rdbtn_sabado);
+//		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+//		rdbtn_sabado.setBackground(new Color(156, 196, 236));
+//		rdbtn_sabado.setBounds(10, 388, 78, 23);
+//		contentPane.add(rdbtn_sabado);
+//		
+//		JTextArea txtr_porfa = new JTextArea();
+//		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
+//		txtr_porfa.setForeground(Color.RED);
+//		txtr_porfa.setFont(new Font("Tahoma", Font.BOLD, 13));
+//		txtr_porfa.setDisabledTextColor(Color.RED);
+//		txtr_porfa.setBackground(new Color(156, 196, 236));
+//		txtr_porfa.setBounds(106, 388, 126, 52);
+//		contentPane.add(txtr_porfa);
 		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

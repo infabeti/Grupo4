@@ -3,6 +3,7 @@ package ProyectoG4;
 import java.awt.BorderLayout;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,6 +21,7 @@ import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JRadioButton;
@@ -32,6 +34,8 @@ import javax.swing.JTextArea;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JProgressBar;
@@ -92,23 +96,23 @@ public class VGeneros extends JFrame {
 		lbl_logo.setIcon(new ImageIcon(VGeneros.class.getResource("/iconos/cineCSS.png")));  
 		
 		JLabel lbl_codigos = new JLabel("C\u00D3DIGOS:");
-		lbl_codigos.setBounds(15, 219, 126, 44);
+		lbl_codigos.setBounds(15, 174, 126, 44);
 		lbl_codigos.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lbl_drama = new JLabel("1.- DRAMA");
-		lbl_drama.setBounds(15, 261, 105, 34);
+		lbl_drama.setBounds(15, 216, 105, 34);
 		lbl_drama.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_comedia = new JLabel("2.- COMEDIA");
-		lbl_comedia.setBounds(15, 301, 105, 34);
+		lbl_comedia.setBounds(15, 256, 105, 34);
 		lbl_comedia.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_terror = new JLabel("3.- TERROR");
-		lbl_terror.setBounds(15, 341, 105, 34);
+		lbl_terror.setBounds(15, 296, 105, 34);
 		lbl_terror.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lbl_cienciaf = new JLabel("4.- CIENCIA FICCI\u00D3N");
-		lbl_cienciaf.setBounds(15, 381, 186, 34);
+		lbl_cienciaf.setBounds(15, 336, 186, 34);
 		lbl_cienciaf.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.setLayout(null);
 		contentPane.add(lbl_logo);
@@ -173,57 +177,94 @@ public class VGeneros extends JFrame {
 		table_domingo.setBounds(505, 165, 220, 250);
 		contentPane.add(table_domingo);
 		
-		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
-		rdbtn_sabado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		groupDias.add(rdbtn_sabado);
-		rdbtn_sabado.setBounds(6, 167, 78, 23);
-		rdbtn_sabado.setBackground(new Color (156, 196, 236));
-		contentPane.add(rdbtn_sabado);
-		
-		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
-		rdbtn_domingo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		groupDias.add(rdbtn_domingo);
-		rdbtn_domingo.setBounds(6, 196, 90, 23);
-		rdbtn_domingo.setBackground(new Color (156, 196, 236));
-		contentPane.add(rdbtn_domingo);
 		
 		JButton btn_ir = new JButton("Ir");
-		btn_ir.setEnabled(false);
+		btn_ir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int i=Integer.parseInt(textField_codigo.getText());
+				if (i == 1) {
+					VPeliculas PelisDrama =new VPeliculas();
+					PelisDrama.setBounds (100, 100, 800, 550);
+					PelisDrama.setVisible(true);
+					PelisDrama.setResizable(false);
+					PelisDrama.lbl_genero.setText("Drama");
+					PelisDrama.btn_1_handia.setVisible(true);
+					PelisDrama.btn_1_handia.setEnabled(true);
+					PelisDrama.btn_1_listaSch.setVisible(true);
+					PelisDrama.btn_1_listaSch.setEnabled(true);
+					PelisDrama.btn_1_cadenaPerp.setVisible(true);
+					PelisDrama.btn_1_cadenaPerp.setEnabled(true);
+					PelisDrama.btn_1_millionDollar.setVisible(true);
+					PelisDrama.btn_1_millionDollar.setEnabled(true);
+			        this.setVisible(false);
+				}
+				if (i == 2) {
+					VPeliculas PelisComedia =new VPeliculas();
+					PelisComedia.setBounds (100, 100, 800, 550);
+					PelisComedia.setVisible(true);
+					PelisComedia.setResizable(false);
+					PelisComedia.lbl_genero.setText("Comedia");
+					PelisComedia.btn_2_scaryMovie.setVisible(true);
+					PelisComedia.btn_2_scaryMovie.setEnabled(true);
+					PelisComedia.btn_2_granLebow.setVisible(true);
+					PelisComedia.btn_2_granLebow.setEnabled(true);
+					PelisComedia.btn_2_vidaBrian.setVisible(true);
+					PelisComedia.btn_2_vidaBrian.setEnabled(true);
+					PelisComedia.btn_2_aterriza.setVisible(true);
+					PelisComedia.btn_2_aterriza.setEnabled(true);
+			        this.setVisible(false);
+				}
+				if (i == 3) {
+					VPeliculas PelisTerror =new VPeliculas();
+					PelisTerror.setBounds (100, 100, 800, 550);
+					PelisTerror.setVisible(true);
+					PelisTerror.setResizable(false);
+					PelisTerror.lbl_genero.setText("Terror");
+					PelisTerror.btn_3_psicosis.setVisible(true);
+					PelisTerror.btn_3_psicosis.setEnabled(true);
+					PelisTerror.btn_3_resplandor.setVisible(true);
+					PelisTerror.btn_3_resplandor.setEnabled(true);
+					PelisTerror.btn_3_dracula.setVisible(true);
+					PelisTerror.btn_3_dracula.setEnabled(true);
+					PelisTerror.btn_3_cisne.setVisible(true);
+					PelisTerror.btn_3_cisne.setEnabled(true);
+			        this.setVisible(false);
+				}
+				if (i == 4) {
+					VPeliculas PelisSciFi =new VPeliculas();
+					PelisSciFi.setBounds (100, 100, 800, 550);
+					PelisSciFi.setVisible(true);
+					PelisSciFi.setResizable(false);
+					PelisSciFi.lbl_genero.setText("Ciencia ficción");
+					PelisSciFi.btn_4_2001.setVisible(true);
+					PelisSciFi.btn_4_2001.setEnabled(true);
+					PelisSciFi.btn_4_noviaFrank.setVisible(true);
+					PelisSciFi.btn_4_noviaFrank.setEnabled(true);
+					PelisSciFi.btn_4_planetaSimios.setVisible(true);
+					PelisSciFi.btn_4_planetaSimios.setEnabled(true);
+					PelisSciFi.btn_4_alien.setVisible(true);
+					PelisSciFi.btn_4_alien.setEnabled(true);
+			        this.setVisible(false);
+				}
+			}
+
+			private void setVisible(boolean b) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		btn_ir.setEnabled(true);
 		btn_ir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_ir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn_ir.setMargin(new Insets(2, 2, 2, 2));
 		btn_ir.setBounds(207, 124, 41, 34);
 		contentPane.add(btn_ir);
 		
-		JTextArea txtr_porfa = new JTextArea();
-		txtr_porfa.setForeground(Color.RED);
-		txtr_porfa.setFont(new Font("Tahoma", Font.BOLD, 13));
-		txtr_porfa.setDisabledTextColor(Color.RED);
-		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
-		txtr_porfa.setBounds(102, 167, 126, 52);
-		txtr_porfa.setBackground(new Color (156, 196, 236));
-		contentPane.add(txtr_porfa);
-		
 		JLabel lbl_nube = new JLabel("");
 		lbl_nube.setIcon(new ImageIcon(VGeneros.class.getResource("/iconos/nube.png")));
 		lbl_nube.setBounds(335, -15, 450, 245);
 		contentPane.add(lbl_nube);
 		
-		rdbtn_sabado.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				btn_ir.setEnabled(true);
-			}
-		});
-		
-		rdbtn_domingo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				btn_ir.setEnabled(true);
-			}
-		});
 		btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCancelar.setBounds(685, 477, 89, 23);
 		btnCancelar.setBackground(Color.WHITE);
