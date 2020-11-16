@@ -1,28 +1,58 @@
 package ProyectoG4;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
 
-public class listaGeneros {
-	public listaGeneros(int i) {
-		// TODO Auto-generated constructor stub
-	}
 
-	public listaGeneros(String string, int i, double d, boolean b) {
-		// TODO Auto-generated constructor stub
-	}
+import javax.swing.JLabel;
+import javax.swing.JList;
 
-	public static void main (String[] args) {
-		ArrayList<listaGeneros> listaGeneros = new ArrayList<listaGeneros>();
-		listaGeneros.add(new listaGeneros(1));
-		listaGeneros.add(new listaGeneros(2));
-		listaGeneros.add(new listaGeneros(3));
-		listaGeneros.add(new listaGeneros(4));
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-	}
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
 
-	public static void add(listaGeneros listaPelis) {
-		// TODO Auto-generated method stub
-		
-	}
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+class listaGeneros {
+
+public listaGeneros(String nombre, int genero, double duracion) {
+
+this.nombre=nombre;
+this.genero=genero;
+this.duracion=duracion;
+
+
+}
+
+public String dameDatos() {
+
+return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración: "+duracion;
+
+}
+
+public String dameGenero() {
+
+return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:"+duracion;
+
+}
+
+public String nombre;
+int genero;
+private double duracion;
+
 }
 

@@ -162,7 +162,7 @@ public class VGeneros extends JFrame {
 					PelisDrama.btn_1_listaSch.setVisible(true);
 					PelisDrama.btn_1_cadenaPerp.setVisible(true);
 					PelisDrama.btn_1_millionDollar.setVisible(true);
-					setVisible(true); 
+					setVisible(false); 
 				}	
 				if (i == 2) {
 					VPeliculas PelisComedia =new VPeliculas();
@@ -214,6 +214,10 @@ public class VGeneros extends JFrame {
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
 		
+
+//		JList listd = new JList((infoPelis.listaPelis.toArray());
+//		listd.setBounds(300, 174, 39, 196);
+//		contentPane.add(listd);
 		
 		JList list_domingo = new JList();
 		list_domingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

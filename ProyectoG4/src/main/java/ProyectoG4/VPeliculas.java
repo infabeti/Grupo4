@@ -56,7 +56,7 @@ public class VPeliculas extends JFrame {
 	final JButton btn_4_planetaSimios = new JButton("");
 	final JButton btn_4_alien = new JButton("");
 	private final JButton btnCancelar = new JButton("Cancelar");
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_Round = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -289,18 +289,6 @@ public class VPeliculas extends JFrame {
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
 		
-		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
-		rdbtn_domingo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		buttonGroup.add(rdbtn_domingo);
-		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtn_domingo.setBackground(new Color(156, 196, 236));
-		rdbtn_domingo.setBounds(10, 417, 90, 23);
-		contentPane.add(rdbtn_domingo);
-		
 		JRadioButton rdbtn_sabado = new JRadioButton("S\u00E1bado");
 		rdbtn_sabado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -325,11 +313,43 @@ public class VPeliculas extends JFrame {
 				btn_4_alien.setEnabled(true);
 			}
 		});
-		buttonGroup.add(rdbtn_sabado);
+		buttonGroup_Round.add(rdbtn_sabado);
 		rdbtn_sabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbtn_sabado.setBackground(new Color(156, 196, 236));
 		rdbtn_sabado.setBounds(10, 388, 78, 23);
 		contentPane.add(rdbtn_sabado);
+		
+		
+		JRadioButton rdbtn_domingo = new JRadioButton("Domingo");
+		rdbtn_domingo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btn_1_handia.setEnabled(true);
+				btn_1_listaSch.setEnabled(true);
+				btn_1_cadenaPerp.setEnabled(true);
+				btn_1_millionDollar.setEnabled(true);
+				///////////////////////////////////
+				btn_2_scaryMovie.setEnabled(true);
+				btn_2_granLebow.setEnabled(true);
+				btn_2_vidaBrian.setEnabled(true);
+				btn_2_aterriza.setEnabled(true);
+				///////////////////////////////////
+				btn_3_psicosis.setEnabled(true);
+				btn_3_resplandor.setEnabled(true);
+				btn_3_dracula.setEnabled(true);
+				btn_3_cisne.setEnabled(true);
+				///////////////////////////////////
+				btn_4_2001.setEnabled(true);
+				btn_4_noviaFrank.setEnabled(true);
+				btn_4_planetaSimios.setEnabled(true);
+				btn_4_alien.setEnabled(true);				
+			}
+		});
+		buttonGroup_Round.add(rdbtn_domingo);
+		rdbtn_domingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtn_domingo.setBackground(new Color(156, 196, 236));
+		rdbtn_domingo.setBounds(10, 417, 90, 23);
+		contentPane.add(rdbtn_domingo);
+		
 		
 		JTextArea txtr_porfa = new JTextArea();
 		txtr_porfa.setText("*Por favor, \r\nseleccione una\r\nopcion");
