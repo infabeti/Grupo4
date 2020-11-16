@@ -23,6 +23,7 @@ public class VFin extends JFrame {
 	private final JButton btnCancelar = new JButton("Volver");
 	private final JLabel lblNube = new JLabel("");
 	private final JLabel lblNewLabel = new JLabel("");
+	private final JLabel lblLOGO = new JLabel("New label");
 
 	/**
 	 * Launch the application.
@@ -44,7 +45,7 @@ public class VFin extends JFrame {
 	 * Create the frame.
 	 */
 	public VFin() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VFin.class.getResource("/iconos/cineCSS.png")));
 		setTitle("Fin");
 		initGUI();
 	}
@@ -81,6 +82,10 @@ public class VFin extends JFrame {
 		lblNewLabel.setBounds(0, 0, 89, 84);
 		
 		contentPane.add(lblNewLabel);
+		lblLOGO.setIcon(new ImageIcon(VFin.class.getResource("/iconos/cineCSS.png")));
+		lblLOGO.setBounds(0, 0, 89, 86);
+		
+		contentPane.add(lblLOGO);
 	}
 
 }
