@@ -47,7 +47,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JProgressBar;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
@@ -199,6 +198,9 @@ public class VGeneros extends JFrame {
 					PelisSciFi.btn_4_planetaSimios.setVisible(true);
 					PelisSciFi.btn_4_alien.setVisible(true);
 			        setVisible(false);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Por favor, introduzca valores del 1 al 4");
 				}
 			}});
 
