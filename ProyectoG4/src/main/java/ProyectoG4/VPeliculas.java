@@ -114,7 +114,7 @@ public class VPeliculas extends JFrame {
 		lblEstassonpelisdisponibles.setBounds(113, 89, 218, 27);
 		contentPane.add(lblEstassonpelisdisponibles);
 		
-		lbl_genero.setFont(new Font("Caladea", Font.BOLD, 30));
+		lbl_genero.setFont(new Font("Georgia", Font.BOLD, 30));
 		lbl_genero.setBounds(332, 35, 197, 25);
 		contentPane.add(lbl_genero);
 

@@ -66,19 +66,19 @@ public class VBienvenida extends JFrame {
 		
 		JLabel lblBienvenida = new JLabel("Bienvenido/a");
 		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBienvenida.setFont(new Font("Freestyle Script", Font.PLAIN, 70));
-		lblBienvenida.setBounds(167, 116, 418, 83);
+		lblBienvenida.setFont(new Font("SimSun", Font.BOLD, 70));
+		lblBienvenida.setBounds(167, 116, 450, 83);
 		contentPane.add(lblBienvenida);
 		
 		JLabel lblAppDiseñada = new JLabel("App dise\u00F1ada para");
 		lblAppDiseñada.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAppDiseñada.setFont(new Font("Freestyle Script", Font.PLAIN, 45));
-		lblAppDiseñada.setBounds(183, 222, 390, 64);
+		lblAppDiseñada.setFont(new Font("SimSun", Font.PLAIN, 45));
+		lblAppDiseñada.setBounds(183, 222, 415, 64);
 		contentPane.add(lblAppDiseñada);
 		
 		JLabel lblCineSS = new JLabel("Cine CSS");
 		lblCineSS.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCineSS.setFont(new Font("Freestyle Script", Font.PLAIN, 40));
+		lblCineSS.setFont(new Font("SimSun", Font.BOLD, 50));
 		lblCineSS.setBounds(270, 310, 222, 52);
 		contentPane.add(lblCineSS);
 		

@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
@@ -19,7 +22,7 @@ import java.awt.Toolkit;
 public class VFin extends JFrame {
 
 	private JPanel contentPane;
-	private final JLabel lblCarteleraActualizada = new JLabel("La cartelera se ha actualizado");
+	private final JLabel lblCarteleraActualizada = new JLabel("La cartelera se ha \r\n");
 	private final JButton btnCancelar = new JButton("Volver");
 	private final JLabel lblNube = new JLabel("");
 	private final JLabel lblNewLabel = new JLabel("");
@@ -58,8 +61,8 @@ public class VFin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		lblCarteleraActualizada.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCarteleraActualizada.setFont(new Font("Freestyle Script", Font.PLAIN, 40));
-		lblCarteleraActualizada.setBounds(35, 97, 364, 38);
+		lblCarteleraActualizada.setFont(new Font("SimSun", Font.PLAIN, 30));
+		lblCarteleraActualizada.setBounds(10, 95, 414, 38);
 		
 		contentPane.add(lblCarteleraActualizada);
 		btnCancelar.addMouseListener(new MouseAdapter() {
@@ -71,13 +74,25 @@ public class VFin extends JFrame {
 				dispose();
 			}
 		});
+		
+		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.RED);
+		    	btnCancelar.setForeground(Color.YELLOW);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnCancelar.setBackground(Color.WHITE);
+		    	btnCancelar.setForeground(Color.BLACK);
+		    }
+		});
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnCancelar.setBounds(335, 227, 89, 23);
 		
 		contentPane.add(btnCancelar);
-		lblNube.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\nube.png"));
-		lblNube.setBounds(0, 11, 414, 239);
-		
-		contentPane.add(lblNube);
 		lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
 		lblNewLabel.setBounds(0, 0, 89, 84);
 		
@@ -86,6 +101,15 @@ public class VFin extends JFrame {
 		lblLOGO.setBounds(0, 0, 89, 86);
 		
 		contentPane.add(lblLOGO);
+		
+		JLabel lblActualizado = new JLabel("actualizado");
+		lblActualizado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblActualizado.setFont(new Font("SimSun", Font.PLAIN, 30));
+		lblActualizado.setBounds(10, 144, 414, 38);
+		contentPane.add(lblActualizado);
+		lblNube.setIcon(new ImageIcon(VFin.class.getResource("/iconos/nube.png")));
+		lblNube.setBounds(72, -38, 510, 239);
+		
+		contentPane.add(lblNube);
 	}
-
 }

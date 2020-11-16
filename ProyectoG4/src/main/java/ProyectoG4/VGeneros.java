@@ -237,9 +237,9 @@ public class VGeneros extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//la vetana de Bienvenida
-//				VBienvenida Bienvenida= new VBienvenida();
-//				Bienvenida.setVisible(true);
-//				dispose();
+				VBienvenida Bienvenida= new VBienvenida();
+				Bienvenida.setVisible(true);
+				dispose();
 				
 			}
 		});
