@@ -90,7 +90,7 @@ public class VLogin extends JFrame {
 		
 		lblLogo = new JLabel((String) null);
 		lblLogo.setIcon(new ImageIcon(VLogin.class.getResource("/iconos/cineCSS.png")));
-		lblLogo.setBounds(344, 0, 90, 91);
+		lblLogo.setBounds(10, 5, 90, 92);
 		contentPane.add(lblLogo);
 		
 		JButton btnLogin = new JButton("Login");

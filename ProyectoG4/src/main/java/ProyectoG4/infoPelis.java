@@ -16,10 +16,10 @@ public class infoPelis {
 		listaPelis.add(new listaGeneros("Cadena Perpetua", 1, 2.22));
 		listaPelis.add(new listaGeneros("Million Dollar Baby", 1, 2.13));
 		////////////////////////////////////////////////////////////////////////////////
-		listaPelis.add(new listaGeneros("Scary movie", 2, 1.56));
-		listaPelis.add(new listaGeneros("El gran Lebowsky", 2, 1.56));
-		listaPelis.add(new listaGeneros("La vida de Brian", 2, 1.56));
-		listaPelis.add(new listaGeneros("Aterriza como puedas", 2, 1.56));
+		listaPelis.add(new listaGeneros("Scary movie", 2, 1.30));
+		listaPelis.add(new listaGeneros("El gran Lebowsky", 2, 1.59));
+		listaPelis.add(new listaGeneros("La vida de Brian", 2, 1.34));
+		listaPelis.add(new listaGeneros("Aterriza como puedas", 2, 1.28));
 		////////////////////////////////////////////////////////////////////////////////
 		listaPelis.add(new listaGeneros("Psicosis", 3, 1.49));
 		listaPelis.add(new listaGeneros("El resplandor", 3, 2.26));
