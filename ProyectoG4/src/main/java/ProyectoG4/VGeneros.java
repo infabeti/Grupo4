@@ -223,12 +223,12 @@ public class VGeneros extends JFrame {
 		
 		JList list_domingo = new JList();
 		list_domingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list_domingo.setBounds(513, 174, 39, 196);
+		list_domingo.setBounds(538, 174, 141, 196);
 		contentPane.add(list_domingo);
 		
 		JList list_sabado = new JList();
 		list_sabado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list_sabado.setBounds(364, 174, 39, 196);
+		list_sabado.setBounds(276, 174, 142, 196);
 		contentPane.add(list_sabado);
 		
 		btnCancelar.addActionListener(new ActionListener() {

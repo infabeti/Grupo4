@@ -29,11 +29,14 @@ import javax.swing.SwingConstants;
 
 class listaGeneros {
 
-public listaGeneros(String nombre, int genero, double duracion) {
+public listaGeneros(int genero, int numPeli, String nombre, int duracion) {
 
-this.nombre=nombre;
+
 this.genero=genero;
+this.numPeli=numPeli;
+this.nombre=nombre;
 this.duracion=duracion;
+
 
 
 }
@@ -46,13 +49,15 @@ return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duració
 
 public String dameGenero() {
 
-return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:"+duracion;
+return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración: "+duracion;
 
 }
 
-public String nombre;
+
 int genero;
-private double duracion;
+int numPeli;
+public String nombre;
+int duracion;
 
 }
 

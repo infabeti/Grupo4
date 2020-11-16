@@ -11,25 +11,25 @@ public class infoPelis {
 	  
 	public static void main (String[] args) {
 		ArrayList<listaGeneros> listaPelis = new ArrayList<listaGeneros>();
-		listaPelis.add(new listaGeneros("Handia", 1, 1.56));
-		listaPelis.add(new listaGeneros("La lista de Schindler", 1, 3.17));
-		listaPelis.add(new listaGeneros("Cadena Perpetua", 1, 2.22));
-		listaPelis.add(new listaGeneros("Million Dollar Baby", 1, 2.13));
+		listaPelis.add(new listaGeneros(1, 1, "Handia", 116));
+		listaPelis.add(new listaGeneros(1, 2, "La lista de Schindler", 197));
+		listaPelis.add(new listaGeneros(1, 3, "Cadena Perpetua",142));
+		listaPelis.add(new listaGeneros(1, 4, "Million Dollar Baby", 133));
 		////////////////////////////////////////////////////////////////////////////////
-		listaPelis.add(new listaGeneros("Scary movie", 2, 1.30));
-		listaPelis.add(new listaGeneros("El gran Lebowsky", 2, 1.59));
-		listaPelis.add(new listaGeneros("La vida de Brian", 2, 1.34));
-		listaPelis.add(new listaGeneros("Aterriza como puedas", 2, 1.28));
+		listaPelis.add(new listaGeneros(2, 1, "Scary movie", 90));
+		listaPelis.add(new listaGeneros(2, 2, "El gran Lebowsky", 119));
+		listaPelis.add(new listaGeneros(2, 3, "La vida de Brian", 94));
+		listaPelis.add(new listaGeneros(2, 4, "Aterriza como puedas", 88));
 		////////////////////////////////////////////////////////////////////////////////
-		listaPelis.add(new listaGeneros("Psicosis", 3, 1.49));
-		listaPelis.add(new listaGeneros("El resplandor", 3, 2.26));
-		listaPelis.add(new listaGeneros("Dracula", 3, 2.35));
-		listaPelis.add(new listaGeneros("Cisne negro", 3, 1.50));
+		listaPelis.add(new listaGeneros(3, 1, "Psicosis", 109));
+		listaPelis.add(new listaGeneros(3, 2, "El resplandor", 146));
+		listaPelis.add(new listaGeneros(3, 3, "Dracula", 155));
+		listaPelis.add(new listaGeneros(3, 4, "Cisne negro", 110));
 		////////////////////////////////////////////////////////////////////////////////
-		listaPelis.add(new listaGeneros("2001: Odisea en el espacio", 4, 2.22));
-		listaPelis.add(new listaGeneros("La novia de Frankenstein", 4, 1.15));
-		listaPelis.add(new listaGeneros("El planeta de los simios", 4, 1.55));
-		listaPelis.add(new listaGeneros("Alien, el octavo pasajero", 4, 1.57));
+		listaPelis.add(new listaGeneros(4, 1, "2001: Odisea en el espacio", 142));
+		listaPelis.add(new listaGeneros(4, 2, "La novia de Frankenstein", 75));
+		listaPelis.add(new listaGeneros(4, 3, "El planeta de los simios", 115));
+		listaPelis.add(new listaGeneros(4, 4, "Alien, el octavo pasajero", 117));
 	   
 		System.out.println("* Lista de todas las Películas *");
 	       
