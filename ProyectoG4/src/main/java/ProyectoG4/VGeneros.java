@@ -151,53 +151,55 @@ public class VGeneros extends JFrame {
 		btn_ir.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				int i=Integer.parseInt(textField_codigo.getText());
-				if (i == 1) {
-					VPeliculas PelisDrama =new VPeliculas();
-					PelisDrama.setBounds (100, 100, 800, 550);
-					PelisDrama.setVisible(true);
-					PelisDrama.setResizable(false);
-					PelisDrama.lbl_genero.setText("Drama");
-					PelisDrama.btn_1_handia.setVisible(true);
-					PelisDrama.btn_1_listaSch.setVisible(true);
-					PelisDrama.btn_1_cadenaPerp.setVisible(true);
-					PelisDrama.btn_1_millionDollar.setVisible(true);
-					setVisible(false); 
+				if (i>=1 && i<=4) {
+					if (i == 1) {
+						VPeliculas PelisDrama =new VPeliculas();
+						PelisDrama.setBounds (100, 100, 800, 550);
+						PelisDrama.setVisible(true);
+						PelisDrama.setResizable(false);
+						PelisDrama.lbl_genero.setText("Drama");
+						PelisDrama.btn_1_handia.setVisible(true);
+						PelisDrama.btn_1_listaSch.setVisible(true);
+						PelisDrama.btn_1_cadenaPerp.setVisible(true);
+						PelisDrama.btn_1_millionDollar.setVisible(true);
+						setVisible(false); 
 				}	
-				if (i == 2) {
-					VPeliculas PelisComedia =new VPeliculas();
-					PelisComedia.setBounds (100, 100, 800, 550);
-					PelisComedia.setVisible(true);
-					PelisComedia.setResizable(false);
-					PelisComedia.lbl_genero.setText("Comedia");
-					PelisComedia.btn_2_scaryMovie.setVisible(true);
-					PelisComedia.btn_2_granLebow.setVisible(true);
-					PelisComedia.btn_2_vidaBrian.setVisible(true);
-					PelisComedia.btn_2_aterriza.setVisible(true);
-			        setVisible(false);
+					if (i == 2) {
+						VPeliculas PelisComedia =new VPeliculas();
+						PelisComedia.setBounds (100, 100, 800, 550);
+						PelisComedia.setVisible(true);
+						PelisComedia.setResizable(false);
+						PelisComedia.lbl_genero.setText("Comedia");
+						PelisComedia.btn_2_scaryMovie.setVisible(true);
+						PelisComedia.btn_2_granLebow.setVisible(true);
+						PelisComedia.btn_2_vidaBrian.setVisible(true);
+						PelisComedia.btn_2_aterriza.setVisible(true);
+				        setVisible(false);
 				}
-				if (i == 3) {
-					VPeliculas PelisTerror =new VPeliculas();
-					PelisTerror.setBounds (100, 100, 800, 550);
-					PelisTerror.setVisible(true);
-					PelisTerror.setResizable(false);
-					PelisTerror.lbl_genero.setText("Terror");
-					PelisTerror.btn_3_psicosis.setVisible(true);
-					PelisTerror.btn_3_resplandor.setVisible(true);
-					PelisTerror.btn_3_dracula.setVisible(true);
-					PelisTerror.btn_3_cisne.setVisible(true);
-			        setVisible(false);
+					if (i == 3) {
+						VPeliculas PelisTerror =new VPeliculas();
+						PelisTerror.setBounds (100, 100, 800, 550);
+						PelisTerror.setVisible(true);
+						PelisTerror.setResizable(false);
+						PelisTerror.lbl_genero.setText("Terror");
+						PelisTerror.btn_3_psicosis.setVisible(true);
+						PelisTerror.btn_3_resplandor.setVisible(true);
+						PelisTerror.btn_3_dracula.setVisible(true);
+						PelisTerror.btn_3_cisne.setVisible(true);
+				        setVisible(false);
 				}
-				if (i == 4) {
-					VPeliculas PelisSciFi =new VPeliculas();
-					PelisSciFi.setBounds (100, 100, 800, 550);
-					PelisSciFi.setVisible(true);
-					PelisSciFi.setResizable(false);
-					PelisSciFi.lbl_genero.setText("Ciencia ficción");
-					PelisSciFi.btn_4_2001.setVisible(true);
-					PelisSciFi.btn_4_noviaFrank.setVisible(true);
-					PelisSciFi.btn_4_planetaSimios.setVisible(true);
-					PelisSciFi.btn_4_alien.setVisible(true);
-			        setVisible(false);
+					if (i == 4) {
+						VPeliculas PelisSciFi =new VPeliculas();
+						PelisSciFi.setBounds (100, 100, 800, 550);
+						PelisSciFi.setVisible(true);
+						PelisSciFi.setResizable(false);
+						PelisSciFi.lbl_genero.setText("Ciencia ficción");
+						PelisSciFi.btn_4_2001.setVisible(true);
+						PelisSciFi.btn_4_noviaFrank.setVisible(true);
+						PelisSciFi.btn_4_planetaSimios.setVisible(true);
+						PelisSciFi.btn_4_alien.setVisible(true);
+				        setVisible(false);
+				}
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Por favor, introduzca valores del 1 al 4");

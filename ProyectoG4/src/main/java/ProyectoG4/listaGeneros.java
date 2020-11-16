@@ -49,7 +49,7 @@ return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duració
 
 public String dameGenero() {
 
-return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración: "+duracion;
+return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:  "+duracion;
 
 }
 
