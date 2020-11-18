@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import javax.swing.JList;
 
 public class infoPelis {
+	static ArrayList<listaGeneros> listaPelis;
 	
-	  static double  horaSabado=8, horaDomingo=6;
+	  static int tiempoSabado=480, tiempoDomingo=360;
 	  
 	  
-	public static void main (String[] args) {
-		ArrayList<listaGeneros> listaPelis = new ArrayList<listaGeneros>();
+	infoPelis(){
+		listaPelis = new ArrayList<listaGeneros>();
 		listaPelis.add(new listaGeneros(1, 1, "Handia", 116));
 		listaPelis.add(new listaGeneros(1, 2, "La lista de Schindler", 197));
 		listaPelis.add(new listaGeneros(1, 3, "Cadena Perpetua",142));
@@ -29,15 +30,55 @@ public class infoPelis {
 		listaPelis.add(new listaGeneros(4, 1, "2001: Odisea en el espacio", 142));
 		listaPelis.add(new listaGeneros(4, 2, "La novia de Frankenstein", 75));
 		listaPelis.add(new listaGeneros(4, 3, "El planeta de los simios", 115));
-		listaPelis.add(new listaGeneros(4, 4, "Alien, el octavo pasajero", 117));
-	   
-		System.out.println("* Lista de todas las Películas *");
-	       
+		listaPelis.add(new listaGeneros(4, 4, "Alien, el octavo pasajero", 117));    
+	}
+	public String tituloP (int igenero, int inumPeli) {
 	       for(int i=0;i<listaPelis.size();i++){
-	            if(listaPelis.get(i).genero==1){
-	            System.out.println(listaPelis.get(i).dameGenero());
+	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
+	            	return(listaPelis.get(i).dameTitulo());
+//	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
+	            
 	            }
 	       }
+		return ("ERROR, NO HAY PELI");
+	}
+	public String duracionP (int igenero, int inumPeli) {
+	       for(int i=0;i<listaPelis.size();i++){
+	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
+	            	return(listaPelis.get(i).dameDuracion());
+//	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
+	            
+	            }
+	       }
+		return ("ERROR, NO HAY PELI");
+	}
+	public String tiempoResSabado (int igenero, int inumPeli) {
+	       for(int i=0;i<listaPelis.size();i++){
+	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
+	            	 String tiempoResSab = listaPelis.get(i).dameTiempoRestanteSabado();
+	            	 tiempoSabado  = tiempoSabado -(listaPelis.get(i).minsDuracion());
+	            	return tiempoResSab;
+//	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
+	            	
+	            }
+	       } 
+		return ("ERROR");
+	}
+	public String tiempoResDomingo (int igenero, int inumPeli) {
+	       for(int i=0;i<listaPelis.size();i++){
+	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
+	            	 String tiempoResDom = listaPelis.get(i).dameTiempoRestanteDomingo();
+	            	 tiempoDomingo  = tiempoDomingo -(listaPelis.get(i).minsDuracion());
+	            	return tiempoResDom;
+//	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
+	            	
+	            }
+	       } 
+		return ("ERROR");
+	}
+	private void getText(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

@@ -50,6 +50,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.EtchedBorder;
 
 public class VGeneros extends JFrame {
 
@@ -57,6 +58,12 @@ public class VGeneros extends JFrame {
 	private JTextField textField_codigo;
 	private final ButtonGroup groupDias = new ButtonGroup();
 	private final JButton btnCancelar = new JButton("Cancelar");
+	static DefaultListModel modeloLS = new DefaultListModel();
+	static DefaultListModel modeloLD = new DefaultListModel();
+	static DefaultListModel modeloHS = new DefaultListModel();
+	static DefaultListModel modeloHD = new DefaultListModel();
+	final JLabel lbl_tiempoSabado = new JLabel("");
+	final JLabel lbl_tiempoDomingo = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -131,12 +138,12 @@ public class VGeneros extends JFrame {
 		
 		JLabel lbl_sabado = new JLabel("S\u00C1BADO");
 		lbl_sabado.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lbl_sabado.setBounds(325, 129, 78, 20);
+		lbl_sabado.setBounds(306, 157, 78, 20);
 		contentPane.add(lbl_sabado);
 		
 		JLabel lbl_domingo = new JLabel("DOMINGO");
 		lbl_domingo.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lbl_domingo.setBounds(573, 132, 81, 14);
+		lbl_domingo.setBounds(571, 160, 81, 14);
 		contentPane.add(lbl_domingo);
 		
 		
@@ -218,20 +225,76 @@ public class VGeneros extends JFrame {
 		btnCancelar.setForeground(Color.BLACK);
 		contentPane.add(btnCancelar);
 		
-
-//		JList listd = new JList((infoPelis.listaPelis.toArray());
-//		listd.setBounds(300, 174, 39, 196);
-//		contentPane.add(listd);
-		
-		JList list_domingo = new JList();
-		list_domingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list_domingo.setBounds(538, 174, 141, 196);
-		contentPane.add(list_domingo);
 		
 		JList list_sabado = new JList();
+		list_sabado.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.BLACK, null));
 		list_sabado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list_sabado.setBounds(276, 174, 142, 196);
+		list_sabado.setModel(modeloLS); 
+		list_sabado.setBounds(324, 204, 142, 196);
 		contentPane.add(list_sabado);
+		
+		
+		JList list_domingo = new JList();
+		list_domingo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.BLACK, null));
+		list_domingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_domingo.setModel(modeloLD); 
+		list_domingo.setBounds(605, 204, 142, 196);
+		contentPane.add(list_domingo);
+		
+		
+		JList list_hsabado = new JList();
+		list_hsabado.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.BLACK, null));
+		list_hsabado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_hsabado.setModel(modeloHS); 
+		list_hsabado.setBounds(236, 204, 78, 196);
+		contentPane.add(list_hsabado);
+		
+		JList list_hdomingo = new JList();
+		list_hdomingo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.BLACK, null));
+		list_hdomingo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_hdomingo.setModel(modeloHD); 
+		list_hdomingo.setBounds(517, 204, 78, 196);
+		contentPane.add(list_hdomingo);
+		
+		JLabel lbl_restanteSabado = new JLabel("Tiempo restante S\u00E1bado:");
+		lbl_restanteSabado.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lbl_restanteSabado.setBounds(236, 415, 154, 20);
+		contentPane.add(lbl_restanteSabado);
+		
+		JLabel lbl_restanteDomingo = new JLabel("Tiempo restante Domingo:");
+		lbl_restanteDomingo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lbl_restanteDomingo.setBounds(517, 415, 154, 20);
+		contentPane.add(lbl_restanteDomingo);
+		
+		lbl_tiempoSabado.setForeground(Color.RED);
+		lbl_tiempoSabado.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbl_tiempoSabado.setBounds(386, 418, 80, 14);
+		contentPane.add(lbl_tiempoSabado);
+		
+		lbl_tiempoDomingo.setForeground(Color.RED);
+		lbl_tiempoDomingo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbl_tiempoDomingo.setBounds(670, 418, 80, 14);
+		contentPane.add(lbl_tiempoDomingo);
+		
+		JLabel lbl_durSab = new JLabel("Duraci\u00F3n");
+		lbl_durSab.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lbl_durSab.setBounds(247, 189, 54, 14);
+		contentPane.add(lbl_durSab);
+		
+		JLabel lbl_durDom = new JLabel("Duraci\u00F3n");
+		lbl_durDom.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lbl_durDom.setBounds(529, 189, 54, 14);
+		contentPane.add(lbl_durDom);
+		
+		JLabel lbl_titSab = new JLabel("T\u00EDtulo");
+		lbl_titSab.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lbl_titSab.setBounds(373, 189, 46, 14);
+		contentPane.add(lbl_titSab);
+		
+		JLabel lbl_titDom = new JLabel("T\u00EDtulo");
+		lbl_titDom.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lbl_titDom.setBounds(656, 189, 46, 14);
+		contentPane.add(lbl_titDom);
 		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

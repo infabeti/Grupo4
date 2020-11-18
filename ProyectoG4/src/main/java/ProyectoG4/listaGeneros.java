@@ -43,21 +43,40 @@ this.duracion=duracion;
 
 public String dameDatos() {
 
-return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración: "+duracion;
+	return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:  "+(duracion/60)+" h. " +(duracion%60)+" min.";
 
 }
+public String dameDuracion() {
 
-public String dameGenero() {
+	return (duracion/60)+" h. " +(duracion%60)+" min.";
 
-return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:  "+duracion;
+}
+public String dameTitulo() {
 
+	return nombre;
+
+}
+public int minsDuracion() {
+	
+	return duracion ;
+	
+}
+public String dameTiempoRestanteSabado() {
+	
+	return ((infoPelis.tiempoSabado-duracion)/60)+" h. "+ ((infoPelis.tiempoSabado-duracion)%60)+ " min." ;
+	
+}
+public String dameTiempoRestanteDomingo() {
+	
+	return ((infoPelis.tiempoDomingo-duracion)/60)+" h. "+ ((infoPelis.tiempoDomingo-duracion)%60)+ " min." ;
+	
 }
 
 
-int genero;
-int numPeli;
+public int genero;
+public int numPeli;
 public String nombre;
-int duracion;
+public int duracion;
 
 }
 

@@ -31,6 +31,7 @@ import java.awt.Cursor;
 import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 
 public class VPeliculas extends JFrame {
 
@@ -57,7 +58,8 @@ public class VPeliculas extends JFrame {
 	final JButton btn_4_alien = new JButton("");
 	private final JButton btnCancelar = new JButton("Cancelar");
 	private final ButtonGroup buttonGroup_Round = new ButtonGroup();
-
+	private DefaultListModel modelo = new DefaultListModel();
+	infoPelis arrayPelis = new infoPelis();
 	/**
 	 * Launch the application.
 	 */
@@ -115,7 +117,7 @@ public class VPeliculas extends JFrame {
 		contentPane.add(lblEstassonpelisdisponibles);
 		
 		lbl_genero.setFont(new Font("Georgia", Font.BOLD, 30));
-		lbl_genero.setBounds(332, 35, 197, 25);
+		lbl_genero.setBounds(332, 35, 271, 25);
 		contentPane.add(lbl_genero);
 
 		btn_1_handia.setVisible(false);
@@ -387,38 +389,120 @@ public class VPeliculas extends JFrame {
 		});
 		btn_1_handia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(rdbtn_sabado.isSelected()){
+				
 
+				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 1)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 1)));
 		        }
+			}
+
+			private Object getText(String duracionP) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 		btn_1_listaSch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 2)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 2)));
 		        }
 			}
 		});
 		btn_1_cadenaPerp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 3)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 3)));
 		        }
 			}
 		});
 		btn_1_millionDollar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 4)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 4)));
 		        }
 			}
 		});
@@ -426,8 +510,28 @@ public class VPeliculas extends JFrame {
 		btn_2_scaryMovie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 1)));
 		        }
 				if(rdbtn_domingo.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 1)));
 					
 		        }
 			}
@@ -435,27 +539,84 @@ public class VPeliculas extends JFrame {
 		btn_2_granLebow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 2)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 2)));
 		        }
 			}
 		});
 		btn_2_vidaBrian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 3)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 3)));
 		        }
 			}
 		});
 		btn_2_aterriza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 4)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 4)));
 		        }
 			}
 		});
@@ -463,36 +624,112 @@ public class VPeliculas extends JFrame {
 		btn_3_psicosis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 1)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 1)));
 		        }
 			}
 		});
 		btn_3_resplandor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 2)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 2)));
 		        }
 			}
 		});
 		btn_3_dracula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 3)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 3)));
 		        }
 			}
 		});
 		btn_3_cisne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 4)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 4)));
 		        }
 			}
 		});
@@ -500,38 +737,119 @@ public class VPeliculas extends JFrame {
 		btn_4_2001.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 1)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 1)));
 		        }
 			}
 		});
 		btn_4_noviaFrank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 2)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 2)));
 		        }
 			}
 		});
 		btn_4_planetaSimios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 3)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 3)));
 		        }
 			}
 		});
 		btn_4_alien.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
+					vueltaGeneros.modeloHS.addElement("------------------");
+					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));
+					vueltaGeneros.modeloLS.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 4)));
 		        }
 				if(rdbtn_domingo.isSelected()){
-					
+					VGeneros vueltaGeneros =new VGeneros();
+					vueltaGeneros.setBounds (100, 100, 800, 550);
+					vueltaGeneros.setVisible(true);
+					vueltaGeneros.setResizable(false);
+					setVisible(false);
+					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
+					vueltaGeneros.modeloHD.addElement("------------------");
+					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
+					vueltaGeneros.modeloLD.addElement("----------------------------------");
+					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 4)));
 		        }
 			}
 		});	
+	}
+
+	private DefaultListModel DefaultListModel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
