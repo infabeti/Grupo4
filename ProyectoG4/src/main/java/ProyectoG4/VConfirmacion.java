@@ -97,7 +97,7 @@ public class VConfirmacion extends JFrame implements ActionListener {
             this.setVisible(false);
         }
         if (e.getSource() == btnNo) {
-        	VBienvenida Ventana = new VBienvenida();
+        	VGeneros Ventana = new VGeneros();
             Ventana.setVisible(true);
             Ventana.setResizable(false);
             this.setVisible(false);
