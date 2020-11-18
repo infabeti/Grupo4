@@ -22,12 +22,12 @@ public class VResumen extends JFrame {
 
 	private JPanel contentPane;
 	private final JLabel lblResCarteleraSemana = new JLabel("Resumen de la cartelera de la semana");
-	private final JLabel lblNewLabel = new JLabel("");
 	private final JList listSabado = new JList();
 	private final JList listDomingo = new JList();
 	private final JLabel lblSabado = new JLabel("Sabado");
 	private final JLabel lblDomingo = new JLabel("Domingo");
 	private final JButton btnCancelar = new JButton("Cancelar");
+	private final JLabel lbl_nube = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -52,7 +52,7 @@ public class VResumen extends JFrame {
 		initGUI();
 	}
 	private void initGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VResumen.class.getResource("/iconos/cineCSS.png")));
 		setTitle("Resumen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 550);
@@ -65,10 +65,6 @@ public class VResumen extends JFrame {
 		lblResCarteleraSemana.setBounds(218, 61, 351, 37);
 		
 		contentPane.add(lblResCarteleraSemana);
-		lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\Logo.png"));
-		lblNewLabel.setBounds(341, 0, 93, 93);
-		
-		contentPane.add(lblNewLabel);
 		listSabado.setBounds(199, 225, 77, 146);
 		
 		contentPane.add(listSabado);
@@ -114,8 +110,12 @@ public class VResumen extends JFrame {
 		contentPane.add(btnSiguiente);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
-		lblNewLabel_1.setBounds(0, 0, 93, 112);
+		lblNewLabel_1.setIcon(new ImageIcon(VResumen.class.getResource("/iconos/cineCSS.png")));
+		lblNewLabel_1.setBounds(10, 5, 90, 92);
 		contentPane.add(lblNewLabel_1);
+		lbl_nube.setIcon(new ImageIcon(VResumen.class.getResource("/iconos/nube.png")));
+		lbl_nube.setBounds(335, -15, 450, 245);
+		
+		contentPane.add(lbl_nube);
 	}
 }

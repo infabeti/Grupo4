@@ -133,6 +133,11 @@ public class VLogin extends JFrame {
 		btnCancelar.setBounds(335, 227, 89, 23);
 		contentPane.add(btnCancelar);
 		
+		JLabel lbl_nube = new JLabel("");
+		lbl_nube.setIcon(new ImageIcon(VLogin.class.getResource("/iconos/nube.png")));
+		lbl_nube.setBounds(72, -38, 362, 239);
+		contentPane.add(lbl_nube);
+		
 		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    	btnCancelar.setBackground(Color.RED);

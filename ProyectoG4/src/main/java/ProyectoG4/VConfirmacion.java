@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 
 public class VConfirmacion extends JFrame implements ActionListener {
@@ -27,6 +29,7 @@ public class VConfirmacion extends JFrame implements ActionListener {
 	private final JButton btnSi = new JButton("Si");
 	private final JButton btnNo = new JButton("No");
 	private final JLabel lblLogo = new JLabel("");
+	private final JLabel lblNube = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -63,7 +66,9 @@ public class VConfirmacion extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblEstasSeguro.setBounds(130, 95, 185, 14);
+		lblEstasSeguro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstasSeguro.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblEstasSeguro.setBounds(97, 108, 243, 14);
 		
 		contentPane.add(lblEstasSeguro);
 		
@@ -71,7 +76,7 @@ public class VConfirmacion extends JFrame implements ActionListener {
 		contentPane.add(btnSi);
 		btnSi.addActionListener(this);
 		
-		btnNo.setBounds(241, 165, 89, 23);
+		btnNo.setBounds(251, 165, 89, 23);
 		contentPane.add(btnNo);
 		btnNo.addActionListener(this);
 		
@@ -82,8 +87,12 @@ public class VConfirmacion extends JFrame implements ActionListener {
 		
 		JLabel lblLOGO = new JLabel("");
 		lblLOGO.setIcon(new ImageIcon(VConfirmacion.class.getResource("/iconos/cineCSS.png")));
-		lblLOGO.setBounds(10, 11, 89, 83);
+		lblLOGO.setBounds(10, 5, 90, 92);
 		contentPane.add(lblLOGO);
+		lblNube.setIcon(new ImageIcon(VConfirmacion.class.getResource("/iconos/nube.png")));
+		lblNube.setBounds(72, -38, 362, 239);
+		
+		contentPane.add(lblNube);
 		
 		
 	}

@@ -25,7 +25,6 @@ public class VFin extends JFrame {
 	private final JLabel lblCarteleraActualizada = new JLabel("La cartelera se ha \r\n");
 	private final JButton btnCancelar = new JButton("Volver");
 	private final JLabel lblNube = new JLabel("");
-	private final JLabel lblNewLabel = new JLabel("");
 	private final JLabel lblLOGO = new JLabel("New label");
 
 	/**
@@ -93,12 +92,8 @@ public class VFin extends JFrame {
 		btnCancelar.setBounds(335, 227, 89, 23);
 		
 		contentPane.add(btnCancelar);
-		lblNewLabel.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4\\ProyectoG4\\imagenes\\cineCSS.png"));
-		lblNewLabel.setBounds(0, 0, 89, 84);
-		
-		contentPane.add(lblNewLabel);
 		lblLOGO.setIcon(new ImageIcon(VFin.class.getResource("/iconos/cineCSS.png")));
-		lblLOGO.setBounds(0, 0, 89, 86);
+		lblLOGO.setBounds(10, 5, 90, 92);
 		
 		contentPane.add(lblLOGO);
 		
@@ -108,7 +103,7 @@ public class VFin extends JFrame {
 		lblActualizado.setBounds(10, 144, 414, 38);
 		contentPane.add(lblActualizado);
 		lblNube.setIcon(new ImageIcon(VFin.class.getResource("/iconos/nube.png")));
-		lblNube.setBounds(72, -38, 510, 239);
+		lblNube.setBounds(72, -38, 362, 239);
 		
 		contentPane.add(lblNube);
 	}
