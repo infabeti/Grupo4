@@ -46,26 +46,31 @@ public String dameDatos() {
 	return "La película se llama: "+nombre+" Pertenece al genero: "+genero+" Duración:  "+(duracion/60)+" h. " +(duracion%60)+" min.";
 
 }
+
 public String dameDuracion() {
 
 	return (duracion/60)+" h. " +(duracion%60)+" min.";
 
 }
+
 public String dameTitulo() {
 
 	return nombre;
 
 }
+
 public int minsDuracion() {
 	
 	return duracion ;
 	
 }
+
 public String dameTiempoRestanteSabado() {
 	
 	return ((infoPelis.tiempoSabado-duracion)/60)+" h. "+ ((infoPelis.tiempoSabado-duracion)%60)+ " min." ;
 	
 }
+
 public String dameTiempoRestanteDomingo() {
 	
 	return ((infoPelis.tiempoDomingo-duracion)/60)+" h. "+ ((infoPelis.tiempoDomingo-duracion)%60)+ " min." ;

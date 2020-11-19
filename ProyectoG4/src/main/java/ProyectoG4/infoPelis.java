@@ -42,6 +42,7 @@ public class infoPelis {
 	       }
 		return ("ERROR, NO HAY PELI");
 	}
+	
 	public String duracionP (int igenero, int inumPeli) {
 	       for(int i=0;i<listaPelis.size();i++){
 	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
@@ -52,11 +53,13 @@ public class infoPelis {
 	       }
 		return ("ERROR, NO HAY PELI");
 	}
+	
 	public String tiempoResSabado (int igenero, int inumPeli) {
 	       for(int i=0;i<listaPelis.size();i++){
 	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
 	            	 String tiempoResSab = listaPelis.get(i).dameTiempoRestanteSabado();
 	            	 tiempoSabado  = tiempoSabado -(listaPelis.get(i).minsDuracion());
+	            	 
 	            	return tiempoResSab;
 //	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
 	            	
@@ -64,11 +67,13 @@ public class infoPelis {
 	       } 
 		return ("ERROR");
 	}
+	
 	public String tiempoResDomingo (int igenero, int inumPeli) {
 	       for(int i=0;i<listaPelis.size();i++){
 	            if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)){
 	            	 String tiempoResDom = listaPelis.get(i).dameTiempoRestanteDomingo();
 	            	 tiempoDomingo  = tiempoDomingo -(listaPelis.get(i).minsDuracion());
+	            	 
 	            	return tiempoResDom;
 //	            	System.out.println(listaPelis.get(i).dameTiempoRestanteSabado());
 	            	
@@ -76,6 +81,7 @@ public class infoPelis {
 	       } 
 		return ("ERROR");
 	}
+	
 	private void getText(String string) {
 		// TODO Auto-generated method stub
 		

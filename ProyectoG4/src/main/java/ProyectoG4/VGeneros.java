@@ -62,8 +62,8 @@ public class VGeneros extends JFrame {
 	static DefaultListModel modeloLD = new DefaultListModel();
 	static DefaultListModel modeloHS = new DefaultListModel();
 	static DefaultListModel modeloHD = new DefaultListModel();
-	final JLabel lbl_tiempoSabado = new JLabel("");
-	final JLabel lbl_tiempoDomingo = new JLabel("");
+	final static JLabel lbl_tiempoSabado = new JLabel("8 h. 00 min.");
+	final static JLabel lbl_tiempoDomingo = new JLabel("6 h. 00 min.");
 
 	/**
 	 * Launch the application.
@@ -157,8 +157,13 @@ public class VGeneros extends JFrame {
 		
 		btn_ir.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
+				
+				boolean numeric = true;
+		        numeric = textField_codigo.getText().matches("-?\\d+(\\.\\d+)?");
+		        
+			if (numeric) {
 				int i=Integer.parseInt(textField_codigo.getText());
-				if (i>=1 && i<=4) {
+				if ((i>=1 && i<=4)) {
 					if (i == 1) {
 						VPeliculas PelisDrama =new VPeliculas();
 						PelisDrama.setBounds (100, 100, 800, 550);
@@ -170,7 +175,7 @@ public class VGeneros extends JFrame {
 						PelisDrama.btn_1_cadenaPerp.setVisible(true);
 						PelisDrama.btn_1_millionDollar.setVisible(true);
 						setVisible(false); 
-				}	
+					}	
 					if (i == 2) {
 						VPeliculas PelisComedia =new VPeliculas();
 						PelisComedia.setBounds (100, 100, 800, 550);
@@ -182,7 +187,7 @@ public class VGeneros extends JFrame {
 						PelisComedia.btn_2_vidaBrian.setVisible(true);
 						PelisComedia.btn_2_aterriza.setVisible(true);
 				        setVisible(false);
-				}
+					}
 					if (i == 3) {
 						VPeliculas PelisTerror =new VPeliculas();
 						PelisTerror.setBounds (100, 100, 800, 550);
@@ -194,7 +199,7 @@ public class VGeneros extends JFrame {
 						PelisTerror.btn_3_dracula.setVisible(true);
 						PelisTerror.btn_3_cisne.setVisible(true);
 				        setVisible(false);
-				}
+					}
 					if (i == 4) {
 						VPeliculas PelisSciFi =new VPeliculas();
 						PelisSciFi.setBounds (100, 100, 800, 550);
@@ -206,12 +211,14 @@ public class VGeneros extends JFrame {
 						PelisSciFi.btn_4_planetaSimios.setVisible(true);
 						PelisSciFi.btn_4_alien.setVisible(true);
 				        setVisible(false);
-				}
+					}
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Por favor, introduzca valores del 1 al 4");
-				}
-			}});
+					JOptionPane.showMessageDialog(null, "Por favor, introduzca valores del 1 al 4");}
+			}else {
+				JOptionPane.showMessageDialog(null, "Por favor, introduzca solo valores numéricos");}
+		}
+	});
 
 		
 		JLabel lbl_nube = new JLabel("");
@@ -273,7 +280,7 @@ public class VGeneros extends JFrame {
 		
 		lbl_tiempoDomingo.setForeground(Color.RED);
 		lbl_tiempoDomingo.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbl_tiempoDomingo.setBounds(670, 418, 80, 14);
+		lbl_tiempoDomingo.setBounds(672, 418, 80, 14);
 		contentPane.add(lbl_tiempoDomingo);
 		
 		JLabel lbl_durSab = new JLabel("Duraci\u00F3n");
@@ -303,7 +310,7 @@ public class VGeneros extends JFrame {
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//la vetana de Bienvenida
+				//la ventana de Bienvenida
 				VBienvenida Bienvenida= new VBienvenida();
 				Bienvenida.setVisible(true);
 				dispose();

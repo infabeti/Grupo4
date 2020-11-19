@@ -59,6 +59,7 @@ public class VPeliculas extends JFrame {
 	private final JButton btnCancelar = new JButton("Cancelar");
 	private final ButtonGroup buttonGroup_Round = new ButtonGroup();
 	private DefaultListModel modelo = new DefaultListModel();
+	VGeneros ventanaGeneros = new VGeneros();
 	infoPelis arrayPelis = new infoPelis();
 	/**
 	 * Launch the application.
@@ -415,11 +416,6 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.modeloLD.addElement("----------------------------------");
 					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 1)));
 		        }
-			}
-
-			private Object getText(String duracionP) {
-				// TODO Auto-generated method stub
-				return null;
 			}
 		});
 		btn_1_listaSch.addActionListener(new ActionListener() {
@@ -846,6 +842,11 @@ public class VPeliculas extends JFrame {
 		        }
 			}
 		});	
+	}
+
+	protected String getText(JLabel lblTiempodomingo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private DefaultListModel DefaultListModel() {
