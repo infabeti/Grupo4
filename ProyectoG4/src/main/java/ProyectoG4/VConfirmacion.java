@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Toolkit;
@@ -141,10 +143,11 @@ public class VConfirmacion extends JFrame implements ActionListener {
 			dispose();
         }
         if (e.getSource() == btnNo) {
-        	VGeneros Ventana = new VGeneros();
-            Ventana.setVisible(true);
-            Ventana.setResizable(false);
-            this.setVisible(false);
+        	JOptionPane.showMessageDialog(null, "Se reiniciará la cartelera que tenía programada.");
+        	VGeneros ventanaGeneros = new VGeneros();
+        	ventanaGeneros.setVisible(true);
+        	ventanaGeneros.setResizable(false);
+        	this.setVisible(false);
 			ventanaGeneros.modeloHS.clear();
 			ventanaGeneros.modeloLS.clear();
 			ventanaGeneros.modeloHD.clear();
