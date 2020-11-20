@@ -36,6 +36,7 @@ public class VResumen extends JFrame {
 	static DefaultListModel modeloHScopia = new DefaultListModel();
 	static DefaultListModel modeloHDcopia = new DefaultListModel();
 	VGeneros ventanaGeneros = new VGeneros();
+	infoPelis datosPelis = new infoPelis();
 
 	/**
 	 * Launch the application.
@@ -97,8 +98,21 @@ public class VResumen extends JFrame {
 				//la vetana de Bienvenida
 				VBienvenida Bienvenida= new VBienvenida();
 				Bienvenida.setVisible(true);
+				
+				modeloHScopia.clear();
+				modeloLScopia.clear();
+				modeloHDcopia.clear();
+				modeloLDcopia.clear();
+				//////////////////////////////////////////////
+				VGeneros.modeloHS.clear();
+				VGeneros.modeloLS.clear();
+				VGeneros.modeloHD.clear();
+				VGeneros.modeloLD.clear();
+				VGeneros.lbl_tiempoSabado.setText("8 h. 00 min.");
+				VGeneros.lbl_tiempoDomingo.setText("6 h. 00 min.");
+				datosPelis.resetValores();
 				dispose();
-	            ventanaGeneros.dispose();
+
 			}
 		});
 		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {

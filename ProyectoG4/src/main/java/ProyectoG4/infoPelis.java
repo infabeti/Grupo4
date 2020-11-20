@@ -8,6 +8,10 @@ public class infoPelis {
 	static ArrayList<listaGeneros> listaPelis;
 	
 	  static int tiempoSabado=480, tiempoDomingo=360;
+	  static int minsSab = tiempoSabado;
+	  static int minsDom = tiempoDomingo;
+
+	protected static Object resetDatos;
 	  
 	  
 	infoPelis(){
@@ -91,9 +95,9 @@ public class infoPelis {
 		return inumPeli;
 	}
 	
-	private void getText(String string) {
-		// TODO Auto-generated method stub
-		
+	public void resetValores() {
+		tiempoSabado = minsSab;
+		tiempoDomingo = minsDom;
 	}
 }
 

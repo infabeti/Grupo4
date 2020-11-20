@@ -32,6 +32,7 @@ public class VConfirmacion extends JFrame implements ActionListener {
 	private final JLabel lblNube = new JLabel("");
 	VGeneros ventanaGeneros = new VGeneros();
 	VResumen ventanaResumen = new VResumen();
+	infoPelis datosPelis = new infoPelis();
 
 	/**
 	 * Launch the application.
@@ -125,17 +126,38 @@ public class VConfirmacion extends JFrame implements ActionListener {
             vent.setVisible(true);
             vent.setResizable(false);
             this.setVisible(false);
-            dispose();
-            ventanaGeneros.dispose();
-            ventanaResumen.dispose();
+			ventanaGeneros.modeloHS.clear();
+			ventanaGeneros.modeloLS.clear();
+			ventanaGeneros.modeloHD.clear();
+			ventanaGeneros.modeloLD.clear();
+			ventanaGeneros.lbl_tiempoSabado.setText("8 h. 00 min.");
+			ventanaGeneros.lbl_tiempoDomingo.setText("6 h. 00 min.");
+			//////////////////////////////////////////////
+			ventanaResumen.modeloHScopia.clear();
+			ventanaResumen.modeloLScopia.clear();
+			ventanaResumen.modeloHDcopia.clear();
+			ventanaResumen.modeloLDcopia.clear();
+			datosPelis.resetValores();
+			dispose();
         }
         if (e.getSource() == btnNo) {
         	VGeneros Ventana = new VGeneros();
             Ventana.setVisible(true);
             Ventana.setResizable(false);
             this.setVisible(false);
-            ventanaGeneros.dispose();
-            ventanaResumen.dispose();
+			ventanaGeneros.modeloHS.clear();
+			ventanaGeneros.modeloLS.clear();
+			ventanaGeneros.modeloHD.clear();
+			ventanaGeneros.modeloLD.clear();
+			ventanaGeneros.lbl_tiempoSabado.setText("8 h. 00 min.");
+			ventanaGeneros.lbl_tiempoDomingo.setText("6 h. 00 min.");
+			//////////////////////////////////////////////
+			ventanaResumen.modeloHScopia.clear();
+			ventanaResumen.modeloLScopia.clear();
+			ventanaResumen.modeloHDcopia.clear();
+			ventanaResumen.modeloLDcopia.clear();
+			datosPelis.resetValores();
+			dispose();
         }
 	};
 }

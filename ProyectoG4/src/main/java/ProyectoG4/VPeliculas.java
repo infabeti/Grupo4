@@ -372,9 +372,19 @@ public class VPeliculas extends JFrame {
 				//la ventana de Bienvenida
 				VBienvenida Bienvenida= new VBienvenida();
 				Bienvenida.setVisible(true);
+				ventanaGeneros.modeloHS.clear();
+				ventanaGeneros.modeloLS.clear();
+				ventanaGeneros.modeloHD.clear();
+				ventanaGeneros.modeloLD.clear();
+				ventanaGeneros.lbl_tiempoSabado.setText("8 h. 00 min.");
+				ventanaGeneros.lbl_tiempoDomingo.setText("6 h. 00 min.");
+				//////////////////////////////////////////////
+				ventanaResumen.modeloHScopia.clear();
+				ventanaResumen.modeloLScopia.clear();
+				ventanaResumen.modeloHDcopia.clear();
+				ventanaResumen.modeloLDcopia.clear();
+				arrayPelis.resetValores();
 				dispose();
-				ventanaGeneros.dispose();
-	            ventanaResumen.dispose();
 				
 			}
 		});
@@ -394,13 +404,12 @@ public class VPeliculas extends JFrame {
 				
 
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
@@ -414,6 +423,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 1))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
@@ -434,14 +449,14 @@ public class VPeliculas extends JFrame {
 						}
 					}
 		        }
-				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
+				if(rdbtn_domingo.isSelected()){			
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
@@ -455,6 +470,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 1))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
@@ -481,13 +502,13 @@ public class VPeliculas extends JFrame {
 		btn_1_listaSch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
@@ -501,6 +522,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 2))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
@@ -522,13 +549,13 @@ public class VPeliculas extends JFrame {
 		        }
 			}
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
@@ -542,6 +569,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 2))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
@@ -567,13 +600,13 @@ public class VPeliculas extends JFrame {
 		btn_1_cadenaPerp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
@@ -587,6 +620,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 3))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
@@ -608,13 +647,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
@@ -628,6 +667,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 3))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
@@ -653,13 +698,13 @@ public class VPeliculas extends JFrame {
 		btn_1_millionDollar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
@@ -673,6 +718,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 4))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
@@ -694,13 +745,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
@@ -714,6 +765,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 4))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
@@ -740,13 +797,13 @@ public class VPeliculas extends JFrame {
 		btn_2_scaryMovie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
@@ -760,6 +817,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 1))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
@@ -781,13 +844,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
@@ -801,6 +864,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 1))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
@@ -827,13 +896,13 @@ public class VPeliculas extends JFrame {
 		btn_2_granLebow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
@@ -847,6 +916,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 2))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
@@ -868,13 +943,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
@@ -888,6 +963,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 2))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
@@ -913,13 +994,13 @@ public class VPeliculas extends JFrame {
 		btn_2_vidaBrian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
@@ -933,6 +1014,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 3))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
@@ -954,13 +1041,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
@@ -974,6 +1061,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 3))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
@@ -999,13 +1092,13 @@ public class VPeliculas extends JFrame {
 		btn_2_aterriza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
@@ -1019,6 +1112,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 4))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
@@ -1040,13 +1139,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
@@ -1060,6 +1159,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 4))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
@@ -1086,13 +1191,13 @@ public class VPeliculas extends JFrame {
 		btn_3_psicosis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
@@ -1106,6 +1211,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 1))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
@@ -1127,13 +1238,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
@@ -1147,6 +1258,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 1))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
@@ -1172,13 +1289,13 @@ public class VPeliculas extends JFrame {
 		btn_3_resplandor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
@@ -1192,6 +1309,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 2))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
@@ -1213,13 +1336,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
@@ -1233,6 +1356,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 2))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
@@ -1258,13 +1387,13 @@ public class VPeliculas extends JFrame {
 		btn_3_dracula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
@@ -1278,6 +1407,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 3))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
@@ -1299,13 +1434,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
@@ -1319,6 +1454,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 3))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
@@ -1344,13 +1485,13 @@ public class VPeliculas extends JFrame {
 		btn_3_cisne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
@@ -1364,6 +1505,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 4))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
@@ -1385,13 +1532,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
@@ -1405,6 +1552,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 4))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
@@ -1431,13 +1584,13 @@ public class VPeliculas extends JFrame {
 		btn_4_2001.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
@@ -1451,6 +1604,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 1))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
@@ -1472,13 +1631,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 1))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
@@ -1492,6 +1651,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 1))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 1))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
@@ -1517,13 +1682,13 @@ public class VPeliculas extends JFrame {
 		btn_4_noviaFrank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
@@ -1537,6 +1702,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 2))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
@@ -1558,13 +1729,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 2))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
@@ -1578,6 +1749,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 2))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 2))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
@@ -1603,13 +1780,13 @@ public class VPeliculas extends JFrame {
 		btn_4_planetaSimios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
@@ -1623,6 +1800,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 3))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
@@ -1644,13 +1827,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 3))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
@@ -1664,6 +1847,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 3))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 3))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
@@ -1689,13 +1878,13 @@ public class VPeliculas extends JFrame {
 		btn_4_alien.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
 						vueltaGeneros.modeloHS.addElement("------------------");
 						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));
@@ -1709,6 +1898,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 4))+"', se programará el DOMINGO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
 							vueltaGeneros.modeloHD.addElement("------------------");
 							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
@@ -1730,13 +1925,13 @@ public class VPeliculas extends JFrame {
 					}
 		        }
 				if(rdbtn_domingo.isSelected()){
-					VGeneros vueltaGeneros =new VGeneros();
-					vueltaGeneros.setBounds (100, 100, 800, 550);
-					vueltaGeneros.setVisible(true);
-					vueltaGeneros.setResizable(false);
-					setVisible(false);
-					
 					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 4))) {
+						VGeneros vueltaGeneros =new VGeneros();
+						vueltaGeneros.setBounds (100, 100, 800, 550);
+						vueltaGeneros.setVisible(true);
+						vueltaGeneros.setResizable(false);
+						setVisible(false);
+						
 						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
 						vueltaGeneros.modeloHD.addElement("------------------");
 						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
@@ -1750,6 +1945,12 @@ public class VPeliculas extends JFrame {
 					}else {
 						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 4))) {
 							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 4))+"', se programará el SÁBADO.");
+							VGeneros vueltaGeneros =new VGeneros();
+							vueltaGeneros.setBounds (100, 100, 800, 550);
+							vueltaGeneros.setVisible(true);
+							vueltaGeneros.setResizable(false);
+							setVisible(false);
+							
 							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
 							vueltaGeneros.modeloHS.addElement("------------------");
 							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));

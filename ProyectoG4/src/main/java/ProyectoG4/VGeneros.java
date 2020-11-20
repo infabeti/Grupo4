@@ -65,7 +65,7 @@ public class VGeneros extends JFrame {
 	static DefaultListModel modeloHD = new DefaultListModel();
 	final static JLabel lbl_tiempoSabado = new JLabel("8 h. 00 min.");
 	final static JLabel lbl_tiempoDomingo = new JLabel("6 h. 00 min.");
-
+	infoPelis datosPelis = new infoPelis();
 	/**
 	 * Launch the application.
 	 */
@@ -310,6 +310,18 @@ public class VGeneros extends JFrame {
 				//la ventana de Bienvenida
 				VBienvenida Bienvenida= new VBienvenida();
 				Bienvenida.setVisible(true);
+				modeloHS.clear();
+				modeloLS.clear();
+				modeloHD.clear();
+				modeloLD.clear();
+				lbl_tiempoSabado.setText("8 h. 00 min.");
+				lbl_tiempoDomingo.setText("6 h. 00 min.");
+				//////////////////////////////////////////////
+				VResumen.modeloHScopia.clear();
+				VResumen.modeloLScopia.clear();
+				VResumen.modeloHDcopia.clear();
+				VResumen.modeloLDcopia.clear();
+				datosPelis.resetValores();
 				dispose();
 				
 			}
