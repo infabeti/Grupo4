@@ -23,7 +23,7 @@ public class VFin extends JFrame {
 
 	private JPanel contentPane;
 	private final JLabel lblCarteleraActualizada = new JLabel("La cartelera se ha \r\n");
-	private final JButton btnCancelar = new JButton("Volver");
+	private final JButton btn_volver = new JButton("Volver");
 	private final JLabel lblNube = new JLabel("");
 	private final JLabel lblLOGO = new JLabel("New label");
 
@@ -64,7 +64,7 @@ public class VFin extends JFrame {
 		lblCarteleraActualizada.setBounds(10, 95, 414, 38);
 		
 		contentPane.add(lblCarteleraActualizada);
-		btnCancelar.addMouseListener(new MouseAdapter() {
+		btn_volver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// A la vetana de Bienvenida
@@ -74,24 +74,24 @@ public class VFin extends JFrame {
 			}
 		});
 		
-		btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+		btn_volver.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	btnCancelar.setBackground(Color.RED);
-		    	btnCancelar.setForeground(Color.YELLOW);
+		    	btn_volver.setBackground(Color.RED);
+		    	btn_volver.setForeground(Color.YELLOW);
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
-		    	btnCancelar.setBackground(Color.WHITE);
-		    	btnCancelar.setForeground(Color.BLACK);
+		    	btn_volver.setBackground(Color.WHITE);
+		    	btn_volver.setForeground(Color.BLACK);
 		    }
 		});
-		btnCancelar.addActionListener(new ActionListener() {
+		btn_volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnCancelar.setBounds(335, 227, 89, 23);
+		btn_volver.setBounds(335, 227, 89, 23);
 		
-		contentPane.add(btnCancelar);
+		contentPane.add(btn_volver);
 		lblLOGO.setIcon(new ImageIcon(VFin.class.getResource("/iconos/cineCSS.png")));
 		lblLOGO.setBounds(10, 5, 90, 92);
 		

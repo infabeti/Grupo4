@@ -149,10 +149,6 @@ public class VLogin extends JFrame {
 		    	btnCancelar.setForeground(Color.BLACK);
 		    }
 		});
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

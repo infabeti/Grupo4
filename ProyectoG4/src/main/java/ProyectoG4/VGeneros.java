@@ -58,6 +58,7 @@ public class VGeneros extends JFrame {
 	private JTextField textField_codigo;
 	private final ButtonGroup groupDias = new ButtonGroup();
 	private final JButton btnCancelar = new JButton("Cancelar");
+	private final JButton btn_ir = new JButton("Ir");
 	static DefaultListModel modeloLS = new DefaultListModel();
 	static DefaultListModel modeloLD = new DefaultListModel();
 	static DefaultListModel modeloHS = new DefaultListModel();
@@ -82,6 +83,7 @@ public class VGeneros extends JFrame {
 	 */
 	public VGeneros() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VGeneros.class.getResource("/iconos/cineCSS.png")));
+		setTitle("Géneros");
 		setFocusTraversalPolicyProvider(true);
 		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
@@ -147,7 +149,6 @@ public class VGeneros extends JFrame {
 		contentPane.add(lbl_domingo);
 		
 		
-		JButton btn_ir = new JButton("Ir");
 		btn_ir.setEnabled(true);
 		btn_ir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_ir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -295,7 +296,7 @@ public class VGeneros extends JFrame {
 		
 		JLabel lbl_titSab = new JLabel("T\u00EDtulo");
 		lbl_titSab.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lbl_titSab.setBounds(373, 189, 46, 14);
+		lbl_titSab.setBounds(373, 189, 41, 14);
 		contentPane.add(lbl_titSab);
 		
 		JLabel lbl_titDom = new JLabel("T\u00EDtulo");
@@ -303,10 +304,6 @@ public class VGeneros extends JFrame {
 		lbl_titDom.setBounds(656, 189, 46, 14);
 		contentPane.add(lbl_titDom);
 		
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +63,7 @@ public class VPeliculas extends JFrame {
 	private DefaultListModel modelo = new DefaultListModel();
 	VGeneros ventanaGeneros = new VGeneros();
 	infoPelis arrayPelis = new infoPelis();
+	VResumen ventanaResumen = new VResumen();
 	/**
 	 * Launch the application.
 	 */
@@ -363,10 +366,6 @@ public class VPeliculas extends JFrame {
 		txtr_porfa.setBounds(106, 388, 126, 52);
 		contentPane.add(txtr_porfa);
 		
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -374,6 +373,8 @@ public class VPeliculas extends JFrame {
 				VBienvenida Bienvenida= new VBienvenida();
 				Bienvenida.setVisible(true);
 				dispose();
+				ventanaGeneros.dispose();
+	            ventanaResumen.dispose();
 				
 			}
 		});
@@ -398,11 +399,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 1)));
+
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 1))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 1));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 1));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 1))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 1));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 1));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -410,14 +440,44 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 1)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 1))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 1));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 1));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 1));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 1));
+						VResumen.modeloLDcopia.addElement("----------------------------------");	
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 1))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 1));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 1));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 1));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 1));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
+		
 		btn_1_listaSch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(rdbtn_sabado.isSelected()){
@@ -426,23 +486,81 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 2)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 2))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 2));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 2));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 2))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 2));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 2));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
 		        }
+			}
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
 					vueltaGeneros.setBounds (100, 100, 800, 550);
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 2)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 2))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 2));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 2));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 2));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 2));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 2))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 2));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 2));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 2));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 2));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -454,11 +572,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 3)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 3))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 3));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 3));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 3))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 3));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 3));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -466,11 +613,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 3)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 3))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 3));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 3));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 3));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 3));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 3))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 3));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 3));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 3));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 3));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -482,11 +658,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 4)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 4))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 4));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 4));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(1, 4))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 4));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 4));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -494,11 +699,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 4)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(1, 4))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(1, 4));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(1, 4));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(1, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(1, 4));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(1, 4));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(1, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(1, 4))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(1, 4));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(1, 4));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(1, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(1, 4));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(1, 4));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(1, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -511,11 +745,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 1)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 1))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 1));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 1));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 1))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 1));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 1));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -523,11 +786,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 1)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 1))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 1));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 1));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 1));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 1));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 1))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 1));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 1));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 1));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 1));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 					
 		        }
 			}
@@ -540,11 +832,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 2)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 2))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 2));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 2));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 2))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 2));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 2));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -552,11 +873,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 2)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 2))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 2));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 2));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 2));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 2));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 2))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 2));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 2));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 2));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 2));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -568,11 +918,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 3)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 3))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 3));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 3));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 3))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 3));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 3));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -580,11 +959,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 3)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 3))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 3));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 3));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 3));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 3));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 3))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 3));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 3));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 3));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 3));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -596,11 +1004,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 4)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 4))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 4));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 4));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(2, 4))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 4));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 4));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -608,11 +1045,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 4)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(2, 4))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(2, 4));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(2, 4));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(2, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(2, 4));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(2, 4));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(2, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(2, 4))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(2, 4));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(2, 4));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(2, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(2, 4));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(2, 4));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(2, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -625,11 +1091,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 1)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 1))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 1));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 1));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 1))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 1));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 1));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -637,11 +1132,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 1)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 1))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 1));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 1));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 1));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 1));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 1))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 1));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 1));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 1));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 1));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -653,11 +1177,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 2)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 2))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 2));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 2));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 2))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 2));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 2));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -665,11 +1218,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 2)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 2))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 2));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 2));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 2));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 2));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 2))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 2));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 2));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 2));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 2));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -681,11 +1263,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 3)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 3))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 3));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 3));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 3))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 3));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 3));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -693,11 +1304,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 3)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 3))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 3));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 3));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 3));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 3));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 3))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 3));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 3));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 3));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 3));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -709,11 +1349,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 4)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 4))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 4));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 4));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(3, 4))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 4));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 4));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -721,11 +1390,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 4)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(3, 4))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(3, 4));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(3, 4));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(3, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(3, 4));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(3, 4));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(3, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(3, 4))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(3, 4));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(3, 4));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(3, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(3, 4));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(3, 4));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(3, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -738,11 +1436,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 1)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 1))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 1));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 1));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 1))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 1));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 1));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -750,11 +1477,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 1)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 1))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 1));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 1));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 1)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 1));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 1));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 1))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 1))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 1));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 1));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 1)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 1));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 1));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 1))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -766,11 +1522,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 2)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 2))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 2));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 2));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 2))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 2));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 2));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -778,11 +1563,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 2)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 2))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 2));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 2));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 2)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 2));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 2));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 2))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 2))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 2));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 2));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 2)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 2));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 2));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 2))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -794,11 +1608,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 3)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 3))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 3));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 3));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 3))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 3));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 3));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -806,11 +1649,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 3)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 3))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 3));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 3));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 3)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 3));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 3));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 3))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 3))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 3));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 3));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 3)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 3));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 3));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 3))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});
@@ -822,11 +1694,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
-					vueltaGeneros.modeloHS.addElement("------------------");
-					vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));
-					vueltaGeneros.modeloLS.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 4)));
+					
+					if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 4))) {
+						vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
+						vueltaGeneros.modeloHS.addElement("------------------");
+						vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));
+						vueltaGeneros.modeloLS.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 4));
+						VResumen.modeloHScopia.addElement("------------------");
+						VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 4));
+						VResumen.modeloLScopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el SÁBADO para proyectar '"+(arrayPelis.tituloP(4, 4))+"', se programará el DOMINGO.");
+							vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
+							vueltaGeneros.modeloHD.addElement("------------------");
+							vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
+							vueltaGeneros.modeloLD.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 4));
+							VResumen.modeloHDcopia.addElement("------------------");
+							VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 4));
+							VResumen.modeloLDcopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 				if(rdbtn_domingo.isSelected()){
 					VGeneros vueltaGeneros =new VGeneros();
@@ -834,11 +1735,40 @@ public class VPeliculas extends JFrame {
 					vueltaGeneros.setVisible(true);
 					vueltaGeneros.setResizable(false);
 					setVisible(false);
-					vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
-					vueltaGeneros.modeloHD.addElement("------------------");
-					vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
-					vueltaGeneros.modeloLD.addElement("----------------------------------");
-					vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 4)));
+					
+					if((arrayPelis.tiempoDomingo) > (arrayPelis.minutosPeli(4, 4))) {
+						vueltaGeneros.modeloHD.addElement(arrayPelis.duracionP(4, 4));
+						vueltaGeneros.modeloHD.addElement("------------------");
+						vueltaGeneros.modeloLD.addElement(arrayPelis.tituloP(4, 4));
+						vueltaGeneros.modeloLD.addElement("----------------------------------");
+						vueltaGeneros.lbl_tiempoDomingo.setText((arrayPelis.tiempoResDomingo(4, 4)));
+						///////////////////////////////////////////////////////////////////////////
+						VResumen.modeloHDcopia.addElement(arrayPelis.duracionP(4, 4));
+						VResumen.modeloHDcopia.addElement("------------------");
+						VResumen.modeloLDcopia.addElement(arrayPelis.tituloP(4, 4));
+						VResumen.modeloLDcopia.addElement("----------------------------------");
+					}else {
+						if((arrayPelis.tiempoSabado) > (arrayPelis.minutosPeli(4, 4))) {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente el DOMINGO para proyectar '"+(arrayPelis.tituloP(4, 4))+"', se programará el SÁBADO.");
+							vueltaGeneros.modeloHS.addElement(arrayPelis.duracionP(4, 4));
+							vueltaGeneros.modeloHS.addElement("------------------");
+							vueltaGeneros.modeloLS.addElement(arrayPelis.tituloP(4, 4));
+							vueltaGeneros.modeloLS.addElement("----------------------------------");
+							vueltaGeneros.lbl_tiempoSabado.setText((arrayPelis.tiempoResSabado(4, 4)));
+							///////////////////////////////////////////////////////////////////////////
+							VResumen.modeloHScopia.addElement(arrayPelis.duracionP(4, 4));
+							VResumen.modeloHScopia.addElement("------------------");
+							VResumen.modeloLScopia.addElement(arrayPelis.tituloP(4, 4));
+							VResumen.modeloLScopia.addElement("----------------------------------");
+						}else {
+							JOptionPane.showMessageDialog(null, "No hay tiempo suficiente en el fin de semana para proyectar la película '"+(arrayPelis.tituloP(4, 4))+"'. La cartelera está completa");
+							VResumen ventanaresumen =new VResumen();
+							ventanaresumen.setBounds (100, 100, 800, 550);
+							ventanaresumen.setVisible(true);
+							ventanaresumen.setResizable(false);
+							setVisible(false);
+						}
+					}
 		        }
 			}
 		});	

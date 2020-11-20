@@ -81,6 +81,15 @@ public class infoPelis {
 	       } 
 		return ("ERROR");
 	}
+	public int minutosPeli(int igenero, int inumPeli) {
+		 for(int i=0;i<listaPelis.size();i++){
+			 if((listaPelis.get(i).genero==igenero) && (listaPelis.get(i).numPeli==inumPeli)) {
+				 return (listaPelis.get(i).minsDuracion());
+			 }
+			 
+		 }
+		return inumPeli;
+	}
 	
 	private void getText(String string) {
 		// TODO Auto-generated method stub
